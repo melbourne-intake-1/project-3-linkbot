@@ -1,17 +1,24 @@
-// Look at wrapping this in an if statement so dotenv doesn't load in prod.
-require('dotenv').config();
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
+if (process.env.NODE_ENV === 'development' || process.env.NODE_ENV == null) {
+  require('dotenv').config(); // Load .env
+}
+const express = require('express');
+const path = require('path');
+const favicon = require('serve-favicon');
+const logger = require('morgan');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
+const session = require('express-session');
+const cors = require('cors');
+const passport = require('passport');
 
-var index = require('./routes/index');
-var users = require('./routes/users');
-var posts = require('./routes/posts');
+const User = require('./models/User');
 
-var app = express();
+const auth = require('./routes/auth');
+const index = require('./routes/index');
+const users = require('./routes/users');
+const posts = require('./routes/posts');
+
+const app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -22,15 +29,22 @@ app.set('view engine', 'ejs');
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(require('node-sass-middleware')({
-  src: path.join(__dirname, 'public'),
-  dest: path.join(__dirname, 'public'),
-  indentedSyntax: true,
-  sourceMap: true
-}));
+app.use(cookieParser(process.env.SESSION_SECRET));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({ secret: process.env.SESSION_SECRET }));
+app.use(cors({
+  origin: '*'
+}));
 
+// Passport + User
+passport.use(User.createStrategy());
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+// Express + Passport
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.use('/auth', auth);
 app.use('/api/', index);
 app.use('/api/users', users);
 app.use('/api/posts', posts);
