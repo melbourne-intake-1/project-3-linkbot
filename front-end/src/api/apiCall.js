@@ -1,7 +1,6 @@
 import axios from 'axios';
 
-function apiCall() {
-  // return ('shoes')
+function getPosts() {
   return axios.get('http://localhost:3000/api/posts')
     .then(function (response) {
       return response
@@ -11,4 +10,27 @@ function apiCall() {
     })
 }
 
-module.exports = apiCall
+function getPost() {
+  return axios.get('http://localhost:3000/api/posts')
+    .then(function (response) {
+      return response
+    })
+    .catch(function (error) {
+      console.log(error)
+    })
+}
+
+function upvote(postID, votes) {
+  const updatedVotes = votes + 1
+  return axios.put('http://localhost:3000/api/posts/' + postID, {
+    votes: updatedVotes
+  })
+    .then(function (response) {
+      return response
+    })
+    .catch(function (error) {
+      console.log(error)
+    })
+}
+
+module.exports = { getPosts, getPost, upvote }
