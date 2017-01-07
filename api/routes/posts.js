@@ -44,6 +44,7 @@ router.put('/:id', (req, res, next) => {
       if (req.body.title) post.title = req.body.title;
       if (req.body.url) post.url = req.body.url;
       if (req.body.body) post.body = req.body.body;
+      if (req.body.votes) post.votes = post.votes + 1;
       post.save((err) => {
         if (err)
           res.send(err);

@@ -1,5 +1,5 @@
 import React from 'react'
-import apiCall from '../api/apiCall'
+import { getPosts, getPost, upvote } from '../api/apiCall'
 
 class Post extends React.Component {
   constructor(props) {
@@ -9,15 +9,24 @@ class Post extends React.Component {
       stuff: 'stuff'
     }
     this.populatePosts = this.populatePosts.bind(this)
+    this.upvotePost = this.upvotePost.bind(this)
   }
 
   componentDidMount() {
     this.populatePosts()
   }
 
+  upvotePost(post) {
+    upvote(post._id, post.votes)
+      .then(response => {
+        console.log(response.data)
+      })
+    this.populatePosts()  
+  }
+
 
   populatePosts() {
-    apiCall()
+    getPosts()
       .then(response => {
         console.log(response.data)
         this.setState({ posts: response.data })
@@ -28,12 +37,12 @@ class Post extends React.Component {
     return (
       <div>
         <button onClick={this.populatePosts}>TEST</button>
-        { this.state.posts.map(function(post) {
+        { this.state.posts.map((post) => {
           return (
-            <div key={post.id} className="post">
+            <div key={post._id} className="post">
               <p><a href={post.url}> {post.title}</a></p>
               <p>{post.body}</p>
-              <p>votes: {post.votes} </p>
+              <p>votes: {post.votes} <button onClick={() => this.upvotePost(post)}>Button</button></p>
             </div>
           )
         })}
