@@ -60,13 +60,13 @@ class Form extends React.Component {
         </p>
         <form onSubmit={this.handleSubmit}>
           <label>Title:
-            <input onKeyPress={this.updateTitle} type="text" ref="title" placeholder="title" />
+            <input onKeyUp={this.updateTitle} type="text" ref="title" placeholder="title" />
           </label>
           <label>Body:  
-            <input onKeyPress={this.updateBody} type="text" ref="body" placeholder="body" />
+            <input onKeyUpress={this.updateBody} type="text" ref="body" placeholder="body" />
           </label>
           <label>URL:
-            <input onKeyPress={this.updateURL}  type="text" ref="url" placeholder="URL" />
+            <input onKeyUp={this.updateURL}  type="text" ref="url" placeholder="URL" />
           </label>
           <input type="submit" value="Submit" />
         </form>
