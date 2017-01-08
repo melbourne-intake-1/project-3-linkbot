@@ -20,9 +20,9 @@ function getPost() {
     })
 }
 
-function upvote(postID, votes) {
+function upvote(postID) {
   return axios.put('http://localhost:3000/api/posts/' + postID, {
-    votes: votes
+    votes: 'any old value'
   })
     .then(function (response) {
       return response

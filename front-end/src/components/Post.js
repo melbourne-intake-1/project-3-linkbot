@@ -17,18 +17,19 @@ class Post extends React.Component {
   }
 
   upvotePost(post) {
-    upvote(post._id, post.votes)
+    upvote(post._id)
       .then(response => {
         console.log(response.data)
+        this.populatePosts()   
       })
-    this.populatePosts()  
+    
   }
 
 
   populatePosts() {
     getPosts()
       .then(response => {
-        console.log(response.data)
+        console.log('in pop posts', response.data)
         this.setState({ posts: response.data })
       })
   }
