@@ -1,5 +1,6 @@
 import React from 'react'
 import { getPosts, getPost, upvote } from '../api/apiCall'
+import Form from './Form'
 
 class Post extends React.Component {
   constructor(props) {
@@ -47,7 +48,7 @@ class Post extends React.Component {
             </div>
           )
         })}
-        <p>stuff: {this.state.stuff} </p>
+        <Form populatePosts={this.populatePosts} />
       </div>  
     );
   }
