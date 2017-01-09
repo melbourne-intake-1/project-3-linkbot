@@ -6,8 +6,8 @@ class FormFields extends React.Component {
     this.cleanFields = this.cleanFieldsAndSubmit.bind(this)
   }
   
-  cleanFieldsAndSubmit(body, title, url) {
-    //how do i pass action and prevent default
+  cleanFieldsAndSubmit(event, body, title, url) {
+    event.preventDefault()
     console.log(this)
     this.props.handleSubmit(body, title, url)
     this.refs.title.value = '';
@@ -18,7 +18,7 @@ class FormFields extends React.Component {
   render() {
     return (
       <div>
-        <form onSubmit={() => this.cleanFieldsAndSubmit(this.refs.body.value, this.refs.title.value, this.refs.url.value )}>
+        <form onSubmit={(event) => this.cleanFieldsAndSubmit(event, this.refs.body.value, this.refs.title.value, this.refs.url.value )}>
           <label>Title:
             <input onKeyUp={this.props.updateTitle} type="text" ref="title" placeholder="title" />
           </label>
