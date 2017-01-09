@@ -48,6 +48,11 @@ class Form extends React.Component {
     this.refs.title.value = '';
     this.refs.body.value = '';
     this.refs.url.value = '';
+    this.setState({
+      urlPreview: '',
+      titlePreview: 'Preview',
+      bodyPreview: 'Preview'
+    })
   }
 
   render() {
