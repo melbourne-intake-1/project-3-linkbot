@@ -1,5 +1,6 @@
 import React from 'react';
 import PostPreview from './PostPreview'
+import FormFields from './FormFields'
 import { newPost } from '../api/apiCall'
 
 
@@ -62,18 +63,7 @@ class Form extends React.Component {
     return (
       <div>
         <PostPreview title={this.state.titlePreview} body={this.state.bodyPreview} url={this.state.urlPreview} />
-        <form onSubmit={this.handleSubmit}>
-          <label>Title:
-            <input onKeyUp={this.updateTitle} type="text" ref="title" placeholder="title" />
-          </label>
-          <label>Body:  
-            <input onKeyUp={this.updateBody} type="text" ref="body" placeholder="body" />
-          </label>
-          <label>URL:
-            <input onKeyUp={this.updateURL}  type="text" ref="url" placeholder="URL" />
-          </label>
-          <input type="submit" value="Submit" />
-        </form>
+        <FormFields updateTitle={this.updateTitle} updateBody={this.updateBody} updateURL={this.updateURL} />
       </div>
     );
   }
