@@ -10,8 +10,8 @@ class Form extends React.Component {
       title: '',
       body: '',
       url: '',
-      titlePreview: 'title preview',
-      bodyPreview: 'body preview',
+      titlePreview: 'Title Preview',
+      bodyPreview: 'Body Preview',
       urlPreview: 'url'
     }
     this.handleSubmit = this.handleSubmit.bind(this)
