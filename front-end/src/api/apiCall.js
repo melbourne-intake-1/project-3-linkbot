@@ -47,4 +47,14 @@ function newPost(body, url, title) {
     })
 }
 
-module.exports = { getPosts, getPost, upvote, newPost }
+function deletePost(post) {
+  return axios.delete('http://localhost:3000/api/posts/' + post)
+    .then(function (response) {
+      return response
+    })
+    .catch(function (error) {
+      console.log(error)
+    })
+}
+
+module.exports = { getPosts, getPost, upvote, newPost, deletePost }
