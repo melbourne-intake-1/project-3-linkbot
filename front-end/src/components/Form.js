@@ -36,11 +36,9 @@ class Form extends React.Component {
     this.setState({bodyPreview: e.target.value})
   }
 
-  handleSubmit(e) {
-    e.preventDefault()
+  handleSubmit(body, title, url) {
     var popPosts = this.props.populatePosts
-    console.log(this.refs.body.value)
-    newPost(this.refs.body.value, this.refs.title.value, this.refs.url.value)
+    newPost(body, title, url)
       .then(function(response) {
         popPosts()
       })  
@@ -48,10 +46,6 @@ class Form extends React.Component {
   }
 
   cleanFields() {
-    const boo = 'titlePreview'
-    this.refs.title.value = '';
-    this.refs.body.value = '';
-    this.refs.url.value = '';
     this.setState({
       urlPreview: '',
       titlePreview: 'Title Preview',
@@ -63,7 +57,7 @@ class Form extends React.Component {
     return (
       <div>
         <PostPreview title={this.state.titlePreview} body={this.state.bodyPreview} url={this.state.urlPreview} />
-        <FormFields updateTitle={this.updateTitle} updateBody={this.updateBody} updateURL={this.updateURL} />
+        <FormFields updateTitle={this.updateTitle} updateBody={this.updateBody} updateURL={this.updateURL} handleSubmit={this.handleSubmit} />
       </div>
     );
   }

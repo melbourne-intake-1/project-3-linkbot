@@ -33,7 +33,7 @@ function upvote(postID) {
     })
 }
 
-function newPost(body, url, title) {
+function newPost(body, title, url) {
   return axios.post('http://localhost:3000/api/posts', {
     title: title,
     body: body,
