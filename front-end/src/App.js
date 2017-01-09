@@ -10,7 +10,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
-          <Header heading="Test Heading" text="this is some text" />
+          <Header title="LinkBot" />
         </div>
         <p>
           This is where we'll need to require the actual app content
