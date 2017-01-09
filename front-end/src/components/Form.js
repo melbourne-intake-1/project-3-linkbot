@@ -63,7 +63,7 @@ class Form extends React.Component {
             <input onKeyUp={this.updateTitle} type="text" ref="title" placeholder="title" />
           </label>
           <label>Body:  
-            <input onKeyUpress={this.updateBody} type="text" ref="body" placeholder="body" />
+            <input onKeyUp={this.updateBody} type="text" ref="body" placeholder="body" />
           </label>
           <label>URL:
             <input onKeyUp={this.updateURL}  type="text" ref="url" placeholder="URL" />
