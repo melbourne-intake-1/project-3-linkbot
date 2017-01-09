@@ -1,5 +1,7 @@
 import React from 'react';
+import PostPreview from './PostPreview'
 import { newPost } from '../api/apiCall'
+
 
 class Form extends React.Component {
   constructor(props) {
@@ -45,24 +47,21 @@ class Form extends React.Component {
   }
 
   cleanFields() {
+    const boo = 'titlePreview'
     this.refs.title.value = '';
     this.refs.body.value = '';
     this.refs.url.value = '';
     this.setState({
       urlPreview: '',
-      titlePreview: 'Preview',
-      bodyPreview: 'Preview'
+      titlePreview: 'Title Preview',
+      bodyPreview: 'Body Preview'
     })
   }
 
   render() {
     return (
       <div>
-        <p id='preview' >
-        <h4>Preview</h4>
-        <a href={this.state.urlPreview}>{this.state.titlePreview}</a>
-        <p>{this.state.bodyPreview}</p>
-        </p>
+        <PostPreview title={this.state.titlePreview} body={this.state.bodyPreview} />
         <form onSubmit={this.handleSubmit}>
           <label>Title:
             <input onKeyUp={this.updateTitle} type="text" ref="title" placeholder="title" />
