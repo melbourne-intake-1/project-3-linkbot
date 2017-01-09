@@ -5,7 +5,7 @@ class PostPreview extends React.Component {
     return (
       <div id="preview" >
         <h3>Post Preview</h3>
-        <strong>{this.props.title}</strong>
+        <strong><a href={this.props.url}>{this.props.title}</a></strong>
         <p>{this.props.body}</p>
       </div>
     );

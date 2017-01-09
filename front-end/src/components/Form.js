@@ -61,7 +61,7 @@ class Form extends React.Component {
   render() {
     return (
       <div>
-        <PostPreview title={this.state.titlePreview} body={this.state.bodyPreview} />
+        <PostPreview title={this.state.titlePreview} body={this.state.bodyPreview} url={this.state.urlPreview} />
         <form onSubmit={this.handleSubmit}>
           <label>Title:
             <input onKeyUp={this.updateTitle} type="text" ref="title" placeholder="title" />
