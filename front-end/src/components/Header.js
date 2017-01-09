@@ -1,24 +1,15 @@
 import React from 'react'
 
-  // export default function Header({ heading, text }){
-  //   return (
-  //     <div className="jumbotron">
-  //       <h1>{ heading }</h1>
-  //       <h2>{ text }</h2>
-  //     </div>
-  //   )
-  // }
-
 function H1 ({ title }) {
     return (
       <a href="#" style={{ float: 'left' }}>
         <h1 style={{
+          color: '#DACD91',
           float: 'left',
           fontSize: '2em',
-          fontWeight: '500',
           letterSpacing: '0.15em',
           marginLeft: '5%',
-          marginTop: '30px'
+          marginTop: '20px',
         }}>
         { title }
         </h1>
@@ -28,11 +19,13 @@ function H1 ({ title }) {
 
 function Nav ({ links }) {
   return (
-    <ul style={{ marginTop: 45, float: 'right', listStyleType: 'none' }}>
+    <ul style={{ marginTop: 35, float: 'right', listStyleType: 'none' }}>
       <a href="#" className="navlink">
         <li style={{
+          color: '#DACD91',
           display: 'inline',
-          marginRight: '25px',
+          letterSpacing: '0.15em',
+          marginRight: '10px',
           textTransform: 'uppercase'
         }}>{ links }</li>
       </a>
@@ -52,9 +45,9 @@ class Header extends React.Component {
     return (
       <header style={{ clear: 'both' }}>
         <H1 title='LinkBot' />
-        <Nav links='Posts' />
-        <Nav links='Favourites' />
         <Nav links='Logout' />
+        <Nav links='Favourites' />
+        <Nav links='Posts' />
       </header>
     );
   }
