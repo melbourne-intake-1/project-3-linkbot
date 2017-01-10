@@ -4,17 +4,44 @@ import './index.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Post from './components/Post';
+import SignInForm from './components/SignInForm';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    
+    this.state = {
+      // We first check with the API if a user is signed in
+      userLoggedIn: "Nah bro",
+      currentUser: null,
+    };
+
+    this.onUserSignedIn = this.onUserSignedIn.bind(this);
+  }
+
+  onUserSignedIn(user) {
+    console.log('data incoming')
+    console.log(user)
+    if(user){
+      this.setState({
+        userLoggedIn: "yeah man",
+        currentUser: [user.data._id, user.data.email]
+      })
+    } else {
+      this.setState({
+        userLoggedIn: "Wrong Info Entered"
+      })
+    }
+  }
+
   render() {
     return (
       <div className="App">
         <div className="App-header">
           <Header title="LinkBot" />
         </div>
-        <p>
-          This is where we'll need to require the actual app content
-        </p>
+        <h3>User Signed In? {this.state.userLoggedIn} {this.state.currentUser}</h3>
+        <SignInForm onUserSignIn={this.onUserSignedIn} />
         <Post />
         <Footer text="some text for the footer" />
       </div>
