@@ -1,5 +1,19 @@
 import axios from 'axios';
 
+function login(email, password){
+  return axios.post('http://localhost:3000/auth/signin', {
+    email: email,
+    password: password,
+  })
+    .then(function (response) {
+      console.log(response)
+      return response
+    })
+    .catch(function (error) {
+      console.log(error)
+    })
+}
+
 function getPosts() {
   return axios.get('http://localhost:3000/api/posts')
     .then(function (response) {
@@ -57,4 +71,4 @@ function deletePost(post) {
     })
 }
 
-module.exports = { getPosts, getPost, upvote, newPost, deletePost }
+module.exports = { getPosts, getPost, upvote, newPost, deletePost, login }
