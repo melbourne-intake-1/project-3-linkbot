@@ -42,9 +42,6 @@ class App extends Component {
         </div>
         <h3>User Signed In? {this.state.userLoggedIn} {this.state.currentUser}</h3>
         <SignInForm onUserSignIn={this.onUserSignedIn} />
-        <p>
-          This is where we'll need to require the actual app content
-        </p>
         <Post />
         <Footer text="some text for the footer" />
       </div>

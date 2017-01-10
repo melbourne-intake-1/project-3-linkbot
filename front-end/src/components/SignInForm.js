@@ -13,8 +13,6 @@ class SignInForm extends React.Component {
 
   onSignIn(e) {
     e.preventDefault()
-    //e.target.elements.email.value
-    alert(e.target.elements.password.value)
     login(e.target.elements.email.value, e.target.elements.password.value)
       .then(data =>{
         console.log(`data ${data}`)
@@ -33,7 +31,7 @@ class SignInForm extends React.Component {
           </label>
           <label>
             Password:
-            <input name='password' />
+            <input name='password' type='password' />
           </label>
           <button type='submit'>Sign In</button>
         </form>
