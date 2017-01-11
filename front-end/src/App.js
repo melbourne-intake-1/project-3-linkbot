@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactBootstrap from 'react-bootstrap';
 import './index.css';
 
 import Header from './components/Header';
@@ -9,7 +10,7 @@ import SignInForm from './components/SignInForm';
 class App extends Component {
   constructor(props) {
     super(props);
-    
+
     this.state = {
       // We first check with the API if a user is signed in
       userLoggedIn: "Nah bro",
