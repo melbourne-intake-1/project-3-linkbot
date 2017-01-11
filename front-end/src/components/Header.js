@@ -1,37 +1,29 @@
 import React from 'react'
+import { Nav, Navbar, Button, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
 
-function H1 ({ title }) {
+function H1 ({ title, link }) {
     return (
-      <a href="#" style={{ float: 'left' }}>
-        <h1 style={{
-          color: '#DACD91',
-          float: 'left',
-          fontSize: '2em',
-          letterSpacing: '0.15em',
-          marginLeft: '5%',
-          marginTop: '20px',
-        }}>
-        { title }
-        </h1>
-      </a>
+      <Navbar>
+        <Navbar.Header>
+          <Navbar.Brand>
+            <a href="#">{ title }</a>
+          </Navbar.Brand>
+        </Navbar.Header>
+        <Nav>
+          <NavItem eventKey={1} href="#">{ link }</NavItem>
+          <NavItem eventKey={2} href="#">Link</NavItem>
+          <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
+            <MenuItem eventKey={3.1}>Action</MenuItem>
+            <MenuItem eventKey={3.2}>Another action</MenuItem>
+            <MenuItem eventKey={3.3}>Something else here</MenuItem>
+            <MenuItem divider />
+            <MenuItem eventKey={3.3}>Separated link</MenuItem>
+          </NavDropdown>
+        </Nav>
+      </Navbar>
     )
 }
 
-function Nav ({ links }) {
-  return (
-    <ul style={{ marginTop: 35, float: 'right', listStyleType: 'none' }}>
-      <a href="#" className="navlink">
-        <li style={{
-          color: '#DACD91',
-          display: 'inline',
-          letterSpacing: '0.15em',
-          marginRight: '10px',
-          textTransform: 'uppercase'
-        }}>{ links }</li>
-      </a>
-    </ul>
-  )
-}
 
 class Header extends React.Component {
   constructor(props) {
@@ -44,10 +36,7 @@ class Header extends React.Component {
   render() {
     return (
       <header style={{ clear: 'both' }}>
-        <H1 title='LinkBot' />
-        <Nav links='Logout' />
-        <Nav links='Favourites' />
-        <Nav links='Posts' />
+        <H1 title='LinkBot' link='Posts' />
       </header>
     );
   }
