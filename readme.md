@@ -4,6 +4,7 @@
 Project 3 for [CoderFactory Academy](https://coderfactoryacademy.edu.au/)
 
 Project Trello: [Trello Board](https://trello.com/b/nBv1xJOz/major-project-3-linkbot)
+Project Figma: [Figma](https://www.figma.com/file/OmPop1ucxxg2tiWpxDAOjYEs/LinkBot)
 
 LinkBot will collect links posted in our class Slack using a Slack Bot, an API and a React front end to display the information.
 
@@ -36,9 +37,11 @@ Patrick Smith - Coder Factory Lead Trainer
 
 ## Mockups
 Whiteboard screens
+
 ![whiteboard screens](/readme_assets/whiteboard_screens.JPG?raw=true "Optional Title")
 
 Pen and paper sketches
+
 ![whiteboard screens](/readme_assets/pen_paper_screens.jpg?raw=true "Optional Title")
 
 ## Further Information
