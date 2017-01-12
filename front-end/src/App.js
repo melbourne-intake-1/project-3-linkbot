@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
-import ReactBootstrap from 'react-bootstrap';
 import './index.css';
+
+import { MuiThemeProvider, getMuiTheme, darkBaseTheme } from 'material-ui/styles';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Post from './components/Post';
 import SignInForm from './components/SignInForm';
+
+
 
 class App extends Component {
   constructor(props) {
@@ -37,15 +40,17 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <Header title="LinkBot" />
+      <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
+        <div className="App">
+          <div className="App-header">
+            <Header title="LinkBot" />
+          </div>
+          <h3>User Signed In? {this.state.userLoggedIn} {this.state.currentUser}</h3>
+          <SignInForm onUserSignIn={this.onUserSignedIn} />
+          <Post />
+          <Footer text="Footer text" />
         </div>
-        <h3>User Signed In? {this.state.userLoggedIn} {this.state.currentUser}</h3>
-        <SignInForm onUserSignIn={this.onUserSignedIn} />
-        <Post />
-        <Footer text="some text for the footer" />
-      </div>
+      </MuiThemeProvider>
     );
   }
 }
