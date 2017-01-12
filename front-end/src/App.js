@@ -18,6 +18,14 @@ class App extends Component {
     };
 
     this.onUserSignedIn = this.onUserSignedIn.bind(this);
+    this.onUserSignedOut = this.onUserSignedOut.bind(this);
+  }
+
+  onUserSignedOut(){
+   this.setState({
+     userLoggedIn: "Nah bro",
+     currentUser: null
+   })
   }
 
   onUserSignedIn(user) {
@@ -42,7 +50,7 @@ class App extends Component {
           <Header title="LinkBot" />
         </div>
         <h3>User Signed In? {this.state.userLoggedIn} {this.state.currentUser}</h3>
-        <SignInForm onUserSignIn={this.onUserSignedIn} />
+        <SignInForm onUserSignIn={this.onUserSignedIn} onUserSignOut={this.onUserSignedOut} />
         <Post />
         <Footer text="some text for the footer" />
       </div>
