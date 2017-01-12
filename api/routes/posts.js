@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const Post = require('../models/post')
+const requireAuthorizedUser = require('../middleware/requireAuthorizedUser');
 
 // post index page of all Posts
 router.get('/', function(req, res, next) {
