@@ -10,8 +10,6 @@ import Footer from './components/Footer';
 import Post from './components/Post';
 import SignInForm from './components/SignInForm';
 
-
-
 class App extends Component {
   constructor(props) {
     super(props);
@@ -55,10 +53,10 @@ class App extends Component {
           <div className="App-header">
             <Header title="LinkBot" />
           </div>
-          <h3>{this.state.userLoggedIn} {this.state.currentUser}</h3>
-          <SignInForm onUserSignIn={this.onUserSignedIn} />
-          <Post />
-          <Footer text="Footer text" />
+            <h3>{this.state.userLoggedIn} {this.state.currentUser}</h3>
+            <SignInForm onUserSignIn={this.onUserSignedIn} />
+            <Post />
+            <Footer text="Footer text" />
         </div>
       </MuiThemeProvider>
     );
