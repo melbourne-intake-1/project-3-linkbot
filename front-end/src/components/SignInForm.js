@@ -12,7 +12,7 @@ const style = {
   padding: 0,
   textIndent: 10,
   width: 300
-}
+};
 
 class SignInForm extends React.Component {
   constructor(props) {
@@ -48,27 +48,27 @@ class SignInForm extends React.Component {
     return (
       <div >
         <h2>Sign In Form</h2>
-<form onSubmit={ this.onSignIn } >
-        <div>
+        <form onSubmit={ this.onSignIn } >
+          <div>
+            <TextField
+              name='email'
+              type='email'
+              style={ style }
+              floatingLabelText="Email"
+            />
+          </div>
+          <br />
+          <div>
           <TextField
-            name='email'
-            type='email'
+            name='password'
+            type='password'
             style={ style }
-            floatingLabelText="Email"
+            floatingLabelText="Password"
           />
-        </div>
-        <br />
-        <div>
-        <TextField
-          name='password'
-          type='password'
-          style={ style }
-          floatingLabelText="Password"
-        />
-        </div>
-        <div>
-           <RaisedButton label="SUBMIT" primary={true} style={{ width: 300, marginTop: 10 }} type='submit' />
-       </div>
+          </div>
+          <div>
+             <RaisedButton label="submit" primary={true} style={{ backgroundColor: 'pink100', width: 300, marginTop: 10, textTransform: 'uppercase' }} type='submit' />
+          </div>
         </form>
         <a onClick={ this.onSignOut } href="#">Sign Out</a>
       </div>
