@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
-import ReactBootstrap from 'react-bootstrap';
 import './index.css';
+
+import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Post from './components/Post';
 import SignInForm from './components/SignInForm';
+
+
 
 class App extends Component {
   constructor(props) {
@@ -13,7 +18,7 @@ class App extends Component {
 
     this.state = {
       // We first check with the API if a user is signed in
-      userLoggedIn: "Nah bro",
+      userLoggedIn: "User logged in, no",
       currentUser: null,
     };
 
@@ -45,15 +50,17 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <Header title="LinkBot" />
+      <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
+        <div className="App">
+          <div className="App-header">
+            <Header title="LinkBot" />
+          </div>
+          <h3>{this.state.userLoggedIn} {this.state.currentUser}</h3>
+          <SignInForm onUserSignIn={this.onUserSignedIn} />
+          <Post />
+          <Footer text="Footer text" />
         </div>
-        <h3>User Signed In? {this.state.userLoggedIn} {this.state.currentUser}</h3>
-        <SignInForm onUserSignIn={this.onUserSignedIn} onUserSignOut={this.onUserSignedOut} />
-        <Post />
-        <Footer text="some text for the footer" />
-      </div>
+      </MuiThemeProvider>
     );
   }
 }

@@ -1,29 +1,17 @@
 import React from 'react'
-import { Nav, Navbar, Button, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
 
-function H1 ({ title, link }) {
-    return (
-      <Navbar>
-        <Navbar.Header>
-          <Navbar.Brand>
-            <a href="#">{ title }</a>
-          </Navbar.Brand>
-        </Navbar.Header>
-        <Nav>
-          <NavItem eventKey={1} href="#">{ link }</NavItem>
-          <NavItem eventKey={2} href="#">Link</NavItem>
-          <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
-            <MenuItem eventKey={3.1}>Action</MenuItem>
-            <MenuItem eventKey={3.2}>Another action</MenuItem>
-            <MenuItem eventKey={3.3}>Something else here</MenuItem>
-            <MenuItem divider />
-            <MenuItem eventKey={3.3}>Separated link</MenuItem>
-          </NavDropdown>
-        </Nav>
-      </Navbar>
-    )
-}
+//material-ui components
+import { TextField } from 'material-ui/';
+import { Link } from 'react-router';
+import { AppBar } from 'material-ui/';
 
+
+const AppBarExampleIcon = () => (
+  <AppBar
+    title="LinkBot"
+    iconClassNameRight="muidocs-icon-navigation-expand-more"
+  />
+);
 
 class Header extends React.Component {
   constructor(props) {
@@ -36,7 +24,7 @@ class Header extends React.Component {
   render() {
     return (
       <header style={{ clear: 'both' }}>
-        <H1 title='LinkBot' link='Posts' />
+        <AppBarExampleIcon link='Posts' />
       </header>
     );
   }
