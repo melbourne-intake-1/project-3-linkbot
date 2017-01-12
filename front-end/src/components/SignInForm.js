@@ -1,5 +1,5 @@
 import React from 'react';
-import { login } from '../api/apiCall'
+import { login, logout } from '../api/apiCall'
 
 class SignInForm extends React.Component {
   constructor(props) {
@@ -9,6 +9,7 @@ class SignInForm extends React.Component {
       password: ''
     }
     this.onSignIn = this.onSignIn.bind(this)
+    this.onSignOut = this.onSignOut.bind(this)
   }
 
   onSignIn(e) {
@@ -17,6 +18,16 @@ class SignInForm extends React.Component {
       .then(data =>{
         console.log(`data ${data}`)
         this.props.onUserSignIn(data)
+      })
+  }
+
+  onSignOut(e) {
+    alert('yo signout')
+    // e.preventDefault()
+    logout()
+      .then( () => {
+        console.log('logging out')
+        this.props.onUserSignOut()
       })
   }
 
@@ -35,6 +46,7 @@ class SignInForm extends React.Component {
           </label>
           <button type='submit'>Sign In</button>
         </form>
+        <a onClick={ this.onSignOut } href="#">Sign Out</a>
       </div>
     );
   }

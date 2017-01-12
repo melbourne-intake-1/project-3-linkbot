@@ -45,9 +45,9 @@ router.post('/register', function(req, res, next) {
 });
 
 // Sign out
-router.post('/signout', function(req, res) {
+router.get('/signout', function(req, res) {
   req.logout();
-  res.json({ success: true });
+  res.json({ success: true, status: 'nah bro' });
 });
 
 module.exports = router;
