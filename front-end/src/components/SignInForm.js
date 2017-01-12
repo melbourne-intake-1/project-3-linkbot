@@ -1,7 +1,9 @@
 import React from 'react';
-import { login } from '../api/apiCall';
+
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
+
+import { login, logout } from '../api/apiCall'
 
 const style = {
   backgroundColor:'#EEE',
@@ -20,6 +22,7 @@ class SignInForm extends React.Component {
       password: ''
     }
     this.onSignIn = this.onSignIn.bind(this)
+    this.onSignOut = this.onSignOut.bind(this)
   }
 
   onSignIn(e) {
@@ -28,6 +31,16 @@ class SignInForm extends React.Component {
       .then(data =>{
         console.log(`data ${data}`)
         this.props.onUserSignIn(data)
+      })
+  }
+
+  onSignOut(e) {
+    alert('yo signout')
+    // e.preventDefault()
+    logout()
+      .then( () => {
+        console.log('logging out')
+        this.props.onUserSignOut()
       })
   }
 
@@ -57,6 +70,7 @@ class SignInForm extends React.Component {
            <RaisedButton label="SUBMIT" primary={true} style={{ width: 300, marginTop: 10 }} type='submit' />
        </div>
         </form>
+        <a onClick={ this.onSignOut } href="#">Sign Out</a>
       </div>
     );
   }

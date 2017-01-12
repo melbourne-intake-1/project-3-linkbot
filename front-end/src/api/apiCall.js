@@ -14,6 +14,13 @@ function login(email, password){
     })
 }
 
+function logout() {
+  return axios.get('http://localhost:3000/auth/signout')
+    .then(function(response){
+      return response
+    })
+}
+
 function getPosts() {
   return axios.get('http://localhost:3000/api/posts')
     .then(function (response) {
@@ -71,4 +78,4 @@ function deletePost(post) {
     })
 }
 
-module.exports = { getPosts, getPost, upvote, newPost, deletePost, login }
+module.exports = { getPosts, getPost, upvote, newPost, deletePost, login, logout }

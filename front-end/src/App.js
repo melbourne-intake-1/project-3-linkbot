@@ -23,6 +23,14 @@ class App extends Component {
     };
 
     this.onUserSignedIn = this.onUserSignedIn.bind(this);
+    this.onUserSignedOut = this.onUserSignedOut.bind(this);
+  }
+
+  onUserSignedOut(){
+   this.setState({
+     userLoggedIn: "Nah bro",
+     currentUser: null
+   })
   }
 
   onUserSignedIn(user) {
