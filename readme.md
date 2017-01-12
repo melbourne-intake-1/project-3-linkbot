@@ -28,13 +28,18 @@ Patrick Smith - Coder Factory Lead Trainer
 
 ## Proposed implementation
 
+![App flow](/readme_assets/proposed_app_flow.jpg?raw=true "Optional Title")
+
 - A Slack bot that will look for links and send information via post request. 
 - A NodeJS API that will accept the information from the Bot and also serve it via a REST API.
 - A React frontend that will display data from the NodeJS API
 
 ## Mockups
+Whiteboard screens
+![whiteboard screens](/readme_assets/whiteboard_screens.JPG?raw=true "Optional Title")
 
-![Alt text](/readme_assets/whiteboard_screens.JPG?raw=true "Optional Title")
+Pen and paper sketches
+![whiteboard screens](/readme_assets/pen_paper_screens.jpg?raw=true "Optional Title")
 
 ## Further Information
 
@@ -46,9 +51,9 @@ Contains:
 - Database design information
 
 ## Social Media Updates
-[6 Jan 2017](https://twitter.com/jhinch/status/817620496724307968)
-[9 Jan 2017](https://twitter.com/jhinch/status/818443540065697793)
-[10 Jan 2017](https://twitter.com/jhinch/status/818982352013529088)
+- [Twitter, 6 Jan 2017](https://twitter.com/jhinch/status/817620496724307968)
+- [Twitter, 9 Jan 2017](https://twitter.com/jhinch/status/818443540065697793)
+- [Twitter, 10 Jan 2017](https://twitter.com/jhinch/status/818982352013529088)
 
 ## Progress
 
