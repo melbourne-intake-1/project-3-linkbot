@@ -3,26 +3,15 @@ import React from 'react'
 //material-ui components
 import { TextField } from 'material-ui/';
 import { Link } from 'react-router';
+import { AppBar } from 'material-ui/';
 
 
-function MainNav ({ title, link }) {
-    return (
-       <div className="App">
-         <div className="App-header">
-           <h1>{ title }</h1>
-         </div>
-         <div>
-          <Link to='#'>{ link }</Link>
-             <br/>
-         <TextField
-             hintText="Type something here"
-             floatingLabelText="This is a text field from App component"
-             fullWidth={true}
-           />
-         </div>
-       </div>
-    )
-}
+const AppBarExampleIcon = () => (
+  <AppBar
+    title="LinkBot"
+    iconClassNameRight="muidocs-icon-navigation-expand-more"
+  />
+);
 
 class Header extends React.Component {
   constructor(props) {
@@ -35,7 +24,7 @@ class Header extends React.Component {
   render() {
     return (
       <header style={{ clear: 'both' }}>
-        <MainNav title='LinkBot' link='Posts' />
+        <AppBarExampleIcon link='Posts' />
       </header>
     );
   }

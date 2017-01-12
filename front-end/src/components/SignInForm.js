@@ -1,5 +1,16 @@
 import React from 'react';
-import { login } from '../api/apiCall'
+import { login } from '../api/apiCall';
+import TextField from 'material-ui/TextField';
+import RaisedButton from 'material-ui/RaisedButton';
+
+const style = {
+  backgroundColor:'#EEE',
+  borderRadius: 5,
+  marginTop: 10,
+  padding: 0,
+  textIndent: 10,
+  width: 300
+}
 
 class SignInForm extends React.Component {
   constructor(props) {
@@ -24,16 +35,27 @@ class SignInForm extends React.Component {
     return (
       <div >
         <h2>Sign In Form</h2>
-        <form onSubmit={ this.onSignIn } >
-          <label>
-            Email:
-            <input name='email' type='email' />
-          </label>
-          <label>
-            Password:
-            <input name='password' type='password' />
-          </label>
-          <button type='submit'>Sign In</button>
+<form onSubmit={ this.onSignIn } >
+        <div>
+          <TextField
+            name='email'
+            type='email'
+            style={ style }
+            floatingLabelText="Email"
+          />
+        </div>
+        <br />
+        <div>
+        <TextField
+          name='password'
+          type='password'
+          style={ style }
+          floatingLabelText="Password"
+        />
+        </div>
+        <div>
+           <RaisedButton label="SUBMIT" primary={true} style={{ width: 300, marginTop: 10 }} type='submit' />
+       </div>
         </form>
       </div>
     );
