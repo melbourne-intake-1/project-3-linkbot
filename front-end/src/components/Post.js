@@ -58,7 +58,7 @@ class Post extends React.Component {
             </div>
           )
         })}
-        <Form populatePosts={this.populatePosts} />
+        <Form populatePosts={this.populatePosts} />       
       </div>  
     );
   }

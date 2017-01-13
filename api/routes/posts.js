@@ -12,6 +12,10 @@ router.get('/', function(req, res, next) {
   })
 });
 
+router.get('/poop', function(req, res, next) {
+  res.json('Sup fool')
+})
+
 // Get a single Post
 router.get('/:id', function(req, res, next) {
   // Use params ID to identify a Post

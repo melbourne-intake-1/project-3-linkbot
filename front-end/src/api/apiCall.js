@@ -1,28 +1,7 @@
 import axios from 'axios';
 
-function login(email, password){
-  return axios.post('http://localhost:3000/auth/signin', {
-    email: email,
-    password: password,
-  })
-    .then(function (response) {
-      console.log(response)
-      return response
-    })
-    .catch(function (error) {
-      console.log(error)
-    })
-}
-
-function logout() {
-  return axios.get('http://localhost:3000/auth/signout')
-    .then(function(response){
-      return response
-    })
-}
-
 function getPosts() {
-  return axios.get('http://localhost:3000/api/posts')
+  return axios.get('http://localhost:3001/posts')
     .then(function (response) {
       return response
     })
@@ -32,7 +11,7 @@ function getPosts() {
 }
 
 function getPost() {
-  return axios.get('http://localhost:3000/api/posts')
+  return axios.get('http://localhost:3001/posts')
     .then(function (response) {
       return response
     })
@@ -42,7 +21,7 @@ function getPost() {
 }
 
 function upvote(postID) {
-  return axios.put('http://localhost:3000/api/posts/' + postID, {
+  return axios.put('http://localhost:3001/posts/' + postID, {
     // doesn't need a value - just needs to hit the API with anything for votes and it will increment
     votes: 'any old value'
   })
@@ -55,7 +34,7 @@ function upvote(postID) {
 }
 
 function newPost(body, title, url) {
-  return axios.post('http://localhost:3000/api/posts', {
+  return axios.post('http://localhost:3001/posts', {
     title: title,
     body: body,
     url: url
@@ -69,7 +48,7 @@ function newPost(body, title, url) {
 }
 
 function deletePost(post) {
-  return axios.delete('http://localhost:3000/api/posts/' + post)
+  return axios.delete('http://localhost:3001/posts/' + post)
     .then(function (response) {
       return response
     })
@@ -78,4 +57,4 @@ function deletePost(post) {
     })
 }
 
-module.exports = { getPosts, getPost, upvote, newPost, deletePost, login, logout }
+module.exports = { getPosts, getPost, upvote, newPost, deletePost }
