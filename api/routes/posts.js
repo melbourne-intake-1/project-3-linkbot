@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const Post = require('../models/post')
+const requireAuthorizedUser = require('../middleware/requireAuthorizedUser');
 
 // post index page of all Posts
 router.get('/', function(req, res, next) {
@@ -10,6 +11,10 @@ router.get('/', function(req, res, next) {
       res.json(posts)
   })
 });
+
+router.get('/poop', function(req, res, next) {
+  res.json('Sup fool')
+})
 
 // Get a single Post
 router.get('/:id', function(req, res, next) {

@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const db = require('./db');
+const db = require('./init');
 
 const postSchema = new mongoose.Schema({
   title: String, 

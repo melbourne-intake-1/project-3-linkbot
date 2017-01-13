@@ -1,64 +1,69 @@
 import React, { Component } from 'react';
-import './index.css';
-
-import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-
-import Header from './components/Header';
-import Footer from './components/Footer';
+import 'whatwg-fetch'; // Polyfills window.fetch
+import fetchAPI from './api/fetchAPI'
+import { fetchCurrentUser } from './api/auth'
+import Counter from './components/Counter'
 import Post from './components/Post';
-import SignInForm from './components/SignInForm';
+import SignInForm from './components/Auth/SignInForm'
+import SignedInInfo from './components/Auth/SignedInInfo'
+
+
+import './App.css';
 
 class App extends Component {
   constructor(props) {
     super(props);
-
+    
     this.state = {
       // We first check with the API if a user is signed in
-      userLoggedIn: "User logged in, no",
+      needsToCheckSignIn: true,
       currentUser: null,
+      counters: []
     };
 
     this.onUserSignedIn = this.onUserSignedIn.bind(this);
     this.onUserSignedOut = this.onUserSignedOut.bind(this);
-  }
 
-  onUserSignedOut(){
-   this.setState({
-     userLoggedIn: "Nah bro",
-     currentUser: null
-   })
+    fetchCurrentUser()
+      .then(user => {
+        console.log('User', user)
+        this.setState({
+          needsToCheckSignIn: false,
+          currentUser: user
+        })
+      })
+      .catch(error => {
+        console.error('no user', error)
+        this.setState({
+          needsToCheckSignIn: false
+        })
+      })
   }
 
   onUserSignedIn(user) {
-    console.log('data incoming')
-    console.log(user)
-    if(user){
-      this.setState({
-        userLoggedIn: "yeah man",
-        currentUser: [user.data._id, user.data.email]
-      })
-    } else {
-      this.setState({
-        userLoggedIn: "Wrong Info Entered"
-      })
-    }
+    this.setState({ currentUser: user })
   }
 
+  onUserSignedOut() {
+    this.setState({ currentUser: null })
+  }
+  
   render() {
+    const { needsToCheckSignIn, currentUser, counters } = this.state
+
     return (
-      <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
-        <div className="App">
-          <div className="App-header">
-            <Header title="LinkBot" />
-          </div>
-            <h3>{this.state.userLoggedIn} {this.state.currentUser}</h3>
-            <SignInForm onUserSignIn={this.onUserSignedIn} />
-            <Post />
-            <Footer text="Footer text" />
-        </div>
-      </MuiThemeProvider>
+      <main className="App">
+      {
+        needsToCheckSignIn ? (
+          <p>Loading…</p>
+        ) : currentUser ? (
+          <SignedInInfo email={currentUser.email} onUserSignedOut={this.onUserSignedOut} />
+        ) : (
+          <SignInForm onUserSignedIn={this.onUserSignedIn}   />
+        )
+      }
+      <Post userSignedIn={this.state.currentUser} />
+      </main>
     );
   }
 }
