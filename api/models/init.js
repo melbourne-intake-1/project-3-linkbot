@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 // Initialization
-mongoose.connect('mongodb://dbuser:password@ds151008.mlab.com:51008/link_bot')
+mongoose.connect(process.env.MONGO_DB)
 const { connection: db } = mongoose;
 // Same as: const db = mongoose.connection;
 
