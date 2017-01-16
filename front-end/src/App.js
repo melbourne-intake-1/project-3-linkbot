@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import 'whatwg-fetch'; // Polyfills window.fetch
-import fetchAPI from './api/fetchAPI'
-import { fetchCurrentUser } from './api/auth'
+import fetchAPI from './api/fetchAPI';
+import { fetchCurrentUser } from './api/auth';
 import Post from './components/Post';
-import SignInForm from './components/Auth/SignInForm'
-import SignedInInfo from './components/Auth/SignedInInfo'
-
+import SignInForm from './components/Auth/SignInForm';
+import SignedInInfo from './components/Auth/SignedInInfo';
 
 import './App.css';
 
@@ -48,21 +47,23 @@ class App extends Component {
   }
 
   render() {
-    const { needsToCheckSignIn, currentUser, counters } = this.state
+    const { needsToCheckSignIn, currentUser } = this.state
 
     return (
-      <main className="App">
-      {
-        needsToCheckSignIn ? (
-          <p>Loading…</p>
-        ) : currentUser ? (
-          <SignedInInfo email={currentUser.email} onUserSignedOut={this.onUserSignedOut} />
-        ) : (
-          <SignInForm onUserSignedIn={this.onUserSignedIn}   />
-        )
-      }
-      <Post userSignedIn={this.state.currentUser} />
-      </main>
+
+        <main className="App">
+        {
+          needsToCheckSignIn ? (
+            <p>Loading…</p>
+          ) : currentUser ? (
+            <SignedInInfo email={currentUser.email} onUserSignedOut={this.onUserSignedOut} />
+          ) : (
+            <SignInForm onUserSignedIn={this.onUserSignedIn}   />
+          )
+        }
+        <Post userSignedIn={this.state.currentUser} />
+        </main>
+
     );
   }
 }

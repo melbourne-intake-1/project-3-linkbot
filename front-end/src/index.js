@@ -3,7 +3,14 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import './index.css';
 
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+
+
 ReactDOM.render(
-  <App />,
-  document.getElementById('root')
+      <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
+        <App />
+      </MuiThemeProvider>,
+      document.getElementById('root')
 );
