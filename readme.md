@@ -1,10 +1,12 @@
 # LinkBot 🤖
-## Project 3 - Coder Factory Academy
+## Project 3 for [CoderFactory Academy](https://coderfactoryacademy.edu.au/)
 ### By [@thrillho02](https://twitter.com/thrillho02) and [@jhinch](https://twitter.com/jhinch)
-Project 3 for [CoderFactory Academy](https://coderfactoryacademy.edu.au/)
 
-Project Trello: [Trello Board](https://trello.com/b/nBv1xJOz/major-project-3-linkbot)
-Project Figma: [Figma](https://www.figma.com/file/OmPop1ucxxg2tiWpxDAOjYEs/LinkBot)
+#### NodeJS / Express API hosted on Heroku: [https://blooming-everglades-90688.herokuapp.com/](https://blooming-everglades-90688.herokuapp.com/)
+#### ReactJS frontend hosted: ~~not yet hosted~~
+
+**Project Trello:** [Trello Board](https://trello.com/b/nBv1xJOz/major-project-3-linkbot)
+**Project Figma:** [Figma](https://www.figma.com/file/OmPop1ucxxg2tiWpxDAOjYEs/LinkBot)
 
 LinkBot will collect links posted in our class Slack using a Slack Bot, an API and a React front end to display the information.
 
@@ -57,6 +59,7 @@ Contains:
 - [Twitter, 6 Jan 2017](https://twitter.com/jhinch/status/817620496724307968)
 - [Twitter, 9 Jan 2017](https://twitter.com/jhinch/status/818443540065697793)
 - [Twitter, 10 Jan 2017](https://twitter.com/jhinch/status/818982352013529088)
+- [Twitter, 16 Jan 2017](https://twitter.com/jhinch/status/820809692586749952)
 
 ## Progress
-
+- 16 Jan 2017 - API hosted on Heroku
