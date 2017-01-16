@@ -2,7 +2,6 @@ import React from 'react';
 import { TextField, RaisedButton } from 'material-ui/';
 
 const style = {
-  backgroundColor:'#f2f2f2',
   borderRadius: 5,
   margin: 10,
   padding: 0,
@@ -19,16 +18,17 @@ class FormFields extends React.Component {
       body: '',
       url: ''
     }
-    this.cleanFields = this.cleanFieldsAndSubmit.bind(this)
+
     this.updateTitleField = this.updateTitleField.bind(this)
     this.updateBodyField = this.updateBodyField.bind(this)
     this.updateUrlField = this.updateUrlField.bind(this)
+    this.cleanFields = this.cleanFieldsAndSubmit.bind(this)
   }
 
   cleanFieldsAndSubmit(event) {
     event.preventDefault()
     console.log(this)
-    this.props.handleSubmit(this.state.body, this.state.title, this.state.url)
+    this.props.handleSubmit(this.state.title, this.state.body, this.state.url)
     this.state.title = '';
     this.state.body = '';
     this.state.url = '';
@@ -63,28 +63,30 @@ class FormFields extends React.Component {
       <div>
         <form onSubmit={(event) => this.cleanFieldsAndSubmit(event)}>
           <div>
+            <hr />
+            <h3>Create New Post</h3>
             <TextField
               onKeyUp={this.updateTitleField}
               name='email'
               type='text'
               style={ style }
-              floatingLabelText="Post Title"
+              floatingLabelText="Title"
             />
             <TextField
               onKeyUp={this.updateBodyField}
               name='password'
               type='text'
               style={ style }
-              floatingLabelText="Post Body"
+              floatingLabelText="Body"
             />
             <TextField
               onKeyUp={this.updateUrlField}
               name='password'
               type='text'
               style={ style }
-              floatingLabelText="URL"
+              floatingLabelText="Link (URL)"
             />
-             <RaisedButton label="submit" primary={true} style={{ backgroundColor: 'pink100', width: 300, marginTop: 10, marginBottom: 30, textTransform: 'uppercase' }} type='submit' value='submit' />
+             <RaisedButton label="submit" primary={true} style={{ backgroundColor: 'pink100', width: 300, marginTop: 10, marginBottom: 50, textTransform: 'uppercase' }} type='submit' value='submit' />
            </div>
         </form>
       </div>

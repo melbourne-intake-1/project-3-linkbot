@@ -24,6 +24,17 @@ function validatedSignIn({ email, password }) {
 }
 
 // CSS styles we use in render() below
+const style = {
+
+  borderRadius: 5,
+  display: 'block',
+  marginBottom: 10,
+  marginLeft: 'auto',
+  marginRight: 'auto',
+  marginTop: 10,
+  textIndent: 10
+};
+
 const styles = {
     form: {
         padding: '1rem'
@@ -68,9 +79,9 @@ export default class SignInForm extends React.PureComponent {
         })
         // Error either from validation or the server
         .catch(error => {
-            // Give a nicer error message
+            // Give a nice error message
             if (error.message === 'Unauthorized') {
-                // Message inspired by Twitter’s
+                // Message inspired by Twitter
                 error = new Error('The email and password that you entered did not match our records.')
             }
 
@@ -82,21 +93,40 @@ export default class SignInForm extends React.PureComponent {
         const { error } = this.state
 
         return (
+
+                    // <label>
+                    //     Email:
+                    //     <input name='email' type='email' />
+                    // </label>
+                    // <label>
+                    //     Password:
+                    //     <input name='password' />
+                    // </label>
+                    // <button type='submit'>Sign In</button>
+
             <div>
                 { error &&
-                    <p style={ styles.errorMessage }>{ error.message }</p>
+                    <p>{ error.message }</p>
                 }
-                <form onSubmit={ this.onSignIn } style={ styles.form }>
-                    <label style={ styles.label }>
-                        Email:
-                        <input name='email' type='email' />
-                    </label>
-                    <label style={ styles.label }>
-                        Password:
-                        <input name='password' />
-                    </label>
-                    <button type='submit'>Sign In</button>
-                </form>
+              <form onSubmit={ this.onSignIn }>
+                <div>
+                  <TextField
+                    onKeyUp={this.updateTitleField}
+                    name='email'
+                    type='email'
+                    style={ style }
+                    floatingLabelText="Email"
+                  />
+                  <TextField
+                    onKeyUp={this.updateBodyField}
+                    name='password'
+                    type='text'
+                    style={ style }
+                    floatingLabelText="Password"
+                  />
+                   <RaisedButton label="submit" primary={true} style={{ backgroundColor: 'pink100', width: 300, marginTop: 10, marginBottom: 30, textTransform: 'uppercase' }} type='submit' value='submit' />
+                 </div>
+               </form>
             </div>
         )
     }
