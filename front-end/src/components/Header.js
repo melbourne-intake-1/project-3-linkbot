@@ -1,8 +1,8 @@
 import React from 'react'
+import MenuDropdown from './MenuDropdown';
+
 //material-ui components
 import AppBar from 'material-ui/AppBar';
-
-import FlatButton from 'material-ui/FlatButton';
 
 const styles = {
   title: {
@@ -12,8 +12,9 @@ const styles = {
 
 const AppBarExampleIconButton = () => (
   <AppBar
+    style={{width:'100%'}}
     title={<span style={styles.title}>LinkBot</span>}
-    iconElementRight={<FlatButton label="Posts" />}
+    iconElementRight={<MenuDropdown />}
   />
 );
 
@@ -28,7 +29,9 @@ class Header extends React.Component {
   render() {
     return (
       <header style={{ clear: 'both' }}>
-        <AppBarExampleIconButton />
+        <div>
+          <AppBarExampleIconButton />
+        </div>
       </header>
     );
   }
