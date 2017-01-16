@@ -5,6 +5,9 @@ import { fetchCurrentUser } from './api/auth';
 import Post from './components/Post';
 import SignInForm from './components/Auth/SignInForm';
 import SignedInInfo from './components/Auth/SignedInInfo';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import Divider from 'material-ui/Divider';
 
 import './App.css';
 
@@ -52,6 +55,7 @@ class App extends Component {
     return (
 
         <main className="App">
+          <Header />
         {
           needsToCheckSignIn ? (
             <p>Loading…</p>
@@ -62,6 +66,8 @@ class App extends Component {
           )
         }
         <Post userSignedIn={this.state.currentUser} />
+        <Divider />
+        <Footer />
         </main>
 
     );
