@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import 'whatwg-fetch'; // Polyfills window.fetch
 import fetchAPI from './api/fetchAPI'
 import { fetchCurrentUser } from './api/auth'
-import Counter from './components/Counter'
 import Post from './components/Post';
 import SignInForm from './components/Auth/SignInForm'
 import SignedInInfo from './components/Auth/SignedInInfo'
@@ -13,7 +12,7 @@ import './App.css';
 class App extends Component {
   constructor(props) {
     super(props);
-    
+
     this.state = {
       // We first check with the API if a user is signed in
       needsToCheckSignIn: true,
@@ -47,7 +46,7 @@ class App extends Component {
   onUserSignedOut() {
     this.setState({ currentUser: null })
   }
-  
+
   render() {
     const { needsToCheckSignIn, currentUser, counters } = this.state
 
