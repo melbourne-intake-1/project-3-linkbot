@@ -1,34 +1,91 @@
 import React from 'react';
+import { TextField, RaisedButton } from 'material-ui/';
+
+const style = {
+  backgroundColor:'#EEE',
+  borderRadius: 5,
+  marginTop: 10,
+  padding: 0,
+  textIndent: 10,
+  width: 300
+};
+
 
 class FormFields extends React.Component {
   constructor() {
     super()
+    this.state = {
+      title: '',
+      body: '',
+      url: ''
+    }
     this.cleanFields = this.cleanFieldsAndSubmit.bind(this)
+    this.updateTitleField = this.updateTitleField.bind(this)
+    this.updateBodyField = this.updateBodyField.bind(this)
+    this.updateUrlField = this.updateUrlField.bind(this)
   }
 
-  cleanFieldsAndSubmit(event, body, title, url) {
+  cleanFieldsAndSubmit(event) {
     event.preventDefault()
     console.log(this)
-    this.props.handleSubmit(body, title, url)
-    this.refs.title.value = '';
-    this.refs.body.value = '';
-    this.refs.url.value = '';
+    this.props.handleSubmit(this.state.body, this.state.title, this.state.url)
+    this.state.title = '';
+    this.state.body = '';
+    this.state.url = '';
+  }
+
+  updateTitleField(event) {
+      this.props.updateTitle(event)
+
+      this.setState({
+          title: event.target.value
+      });
+  }
+
+  updateBodyField(event) {
+      this.props.updateBody(event)
+
+      this.setState({
+          body: event.target.value
+      });
+  }
+
+  updateUrlField(event) {
+      this.props.updateURL(event)
+      
+      this.setState({
+          url: event.target.value
+      });
   }
 
   render() {
     return (
       <div>
-        <form onSubmit={(event) => this.cleanFieldsAndSubmit(event, this.refs.body.value, this.refs.title.value, this.refs.url.value )}>
-          <label>Title:
-            <input onKeyUp={this.props.updateTitle} type="text" ref="title" placeholder="title" />
-          </label>
-          <label>Body:
-            <input onKeyUp={this.props.updateBody} type="text" ref="body" placeholder="body" />
-          </label>
-          <label>URL:
-            <input onKeyUp={this.props.updateURL}  type="text" ref="url" placeholder="URL" />
-          </label>
-          <input type="submit" value="Submit" />
+        <form onSubmit={(event) => this.cleanFieldsAndSubmit(event)}>
+          <div>
+            <TextField
+              onKeyUp={this.updateTitleField}
+              name='email'
+              type='text'
+              style={ style }
+              floatingLabelText="Post Title"
+            />
+            <TextField
+              onKeyUp={this.updateBodyField}
+              name='password'
+              type='text'
+              style={ style }
+              floatingLabelText="Post Body"
+            />
+            <TextField
+              onKeyUp={this.updateUrlField}
+              name='password'
+              type='text'
+              style={ style }
+              floatingLabelText="URL"
+            />
+             <RaisedButton label="submit" primary={true} style={{ backgroundColor: 'pink100', width: 300, marginTop: 10, textTransform: 'uppercase' }} type='submit' value='submit' />
+           </div>
         </form>
       </div>
     );
