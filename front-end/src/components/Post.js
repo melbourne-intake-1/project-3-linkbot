@@ -2,6 +2,8 @@ import React from 'react'
 import { getPosts, getPost, upvote, deletePost } from '../api/apiCall'
 import Form from './Form'
 
+import RaisedButton from 'material-ui/RaisedButton';
+
 class Post extends React.Component {
   constructor(props) {
     super(props)
@@ -22,9 +24,9 @@ class Post extends React.Component {
     upvote(post._id)
       .then(response => {
         console.log(response.data)
-        this.populatePosts()   
+        this.populatePosts()
       })
-    
+
   }
 
 
@@ -40,7 +42,7 @@ class Post extends React.Component {
     deletePost(post._id)
       .then(response => {
         console.log(response.data)
-        this.populatePosts()   
+        this.populatePosts()
       })
   }
 
@@ -54,12 +56,13 @@ class Post extends React.Component {
               <p>{post.body}</p>
               <p>votes: {post.votes} <button onClick={() => this.upvotePost(post)}>Upvote</button></p>
               <p><a href="#" onClick={() => this.deletePost(post)}>Delete Post</a></p>
+              <RaisedButton label="Default" />
               <hr/>
             </div>
           )
         })}
-        <Form populatePosts={this.populatePosts} />       
-      </div>  
+        <Form populatePosts={this.populatePosts} />
+      </div>
     );
   }
 }
