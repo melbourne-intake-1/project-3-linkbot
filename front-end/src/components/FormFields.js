@@ -2,12 +2,12 @@ import React from 'react';
 import { TextField, RaisedButton } from 'material-ui/';
 
 const style = {
-  backgroundColor:'#EEE',
+  backgroundColor:'#f2f2f2',
   borderRadius: 5,
-  marginTop: 10,
+  margin: 10,
   padding: 0,
   textIndent: 10,
-  width: 300
+  width: 250
 };
 
 
@@ -52,7 +52,7 @@ class FormFields extends React.Component {
 
   updateUrlField(event) {
       this.props.updateURL(event)
-      
+
       this.setState({
           url: event.target.value
       });
@@ -84,7 +84,7 @@ class FormFields extends React.Component {
               style={ style }
               floatingLabelText="URL"
             />
-             <RaisedButton label="submit" primary={true} style={{ backgroundColor: 'pink100', width: 300, marginTop: 10, textTransform: 'uppercase' }} type='submit' value='submit' />
+             <RaisedButton label="submit" primary={true} style={{ backgroundColor: 'pink100', width: 300, marginTop: 10, marginBottom: 30, textTransform: 'uppercase' }} type='submit' value='submit' />
            </div>
         </form>
       </div>

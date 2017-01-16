@@ -1,6 +1,8 @@
 import React, { PropTypes } from 'react'
-
 import { signIn } from '../../api/auth'
+
+import TextField from 'material-ui/TextField';
+import RaisedButton from 'material-ui/RaisedButton';
 
 // Validate passed email and password, and sign in
 function validatedSignIn({ email, password }) {
