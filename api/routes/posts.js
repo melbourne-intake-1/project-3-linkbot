@@ -1,25 +1,27 @@
 const express = require('express');
 const router = express.Router();
 const Post = require('../models/post');
+const Comment = require('../models/comment');
 const requireAuthorizedUser = require('../middleware/requireAuthorizedUser');
 
 // post index page of all Posts
 router.get('/', function(req, res, next) {
   // An empty find method will return all Posts
   Post.find()
+    .populate('_comments')
     .then(posts => {
       res.json(posts)
   })
+  .catch(err => {
+    res.json({ message: err.message })
+  })
 });
-
-router.get('/poop', function(req, res, next) {
-  res.json('Sup fool')
-})
 
 // Get a single Post
 router.get('/:id', function(req, res, next) {
   // Use params ID to identify a Post
   Post.findById(req.params.id)
+    .populate('_comments')
     .then(post => {
       res.json(post)
     })
