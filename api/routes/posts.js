@@ -1,6 +1,6 @@
-var express = require('express');
-var router = express.Router();
-const Post = require('../models/post')
+const express = require('express');
+const router = express.Router();
+const Post = require('../models/post');
 const requireAuthorizedUser = require('../middleware/requireAuthorizedUser');
 
 // post index page of all Posts
@@ -28,16 +28,16 @@ router.get('/:id', function(req, res, next) {
 // Create a post by posting to / route
 router.post('/', function(req, res, next) {
   // Creates a new post from the attributes passed along in the request (req)
-  post = new Post;
+    post = new Post;
     post.title = req.body.title;
     post.url = req.body.url;
     post.body = req.body.body;
     post.votes = 0;
     console.log(post);
     post.save((err) => {
-    if (err) 
+    if (err)
       res.send(err);
-      res.json({post});  
+      res.json({post});
     });
 });
 
@@ -53,12 +53,12 @@ router.put('/:id', (req, res, next) => {
       post.save((err) => {
         if (err)
           res.send(err);
-        res.json(post);  
+        res.json(post);
       });
     });
 });
 
-// Delete a post 
+// Delete a post
 router.delete('/:id', (req, res, next) => {
   Post.findByIdAndRemove(req.params.id)
     .then(() => {
