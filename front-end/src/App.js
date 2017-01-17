@@ -56,18 +56,15 @@ class App extends Component {
 
         <main className="App">
           <Header />
-        {
-          needsToCheckSignIn ? (
-            <p>Loading…</p>
-          ) : currentUser ? (
-            <SignedInInfo email={currentUser.email} onUserSignedOut={this.onUserSignedOut} />
-          ) : (
-            <SignInForm onUserSignedIn={this.onUserSignedIn}   />
-          )
-        }
-        <Post userSignedIn={this.state.currentUser} />
-        <Divider />
-        <Footer />
+          {
+          needsToCheckSignIn ? (<p>Loading…</p>)
+                             : currentUser ? (<SignedInInfo email={currentUser.email}
+                             onUserSignedOut={this.onUserSignedOut} />)
+                             : (<SignInForm onUserSignedIn={this.onUserSignedIn} />)
+          }
+          <Post userSignedIn={this.state.currentUser} />
+          <Divider />
+          <Footer />
         </main>
 
     );
