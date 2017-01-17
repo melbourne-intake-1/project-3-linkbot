@@ -2,10 +2,11 @@ const mongoose = require('mongoose');
 const db = require('./init');
 
 const postSchema = new mongoose.Schema({
-  title: String, 
-  url: String, 
+  title: String,
+  url: String,
   body: String,
-  votes: Number
+  votes: Number,
+  _comments: [{type: mongoose.Schema.Types.ObjectId, ref: "Comment"}]
 });
 
 const Post = mongoose.model('Post', postSchema);
