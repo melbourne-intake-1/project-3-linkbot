@@ -1,5 +1,4 @@
 import React from 'react'
-import MenuDropdown from './MenuDropdown';
 
 //material-ui components
 import AppBar from 'material-ui/AppBar';
@@ -7,14 +6,14 @@ import AppBar from 'material-ui/AppBar';
 const styles = {
   title: {
     cursor: 'pointer',
+    marginRight: 40,
   },
 };
 
 const AppBarExampleIconButton = () => (
   <AppBar
-    style={{width:'100%'}}
+    style={{width:'100%', backgroundColor: '#253a87'}}
     title={<span style={styles.title}>LinkBot</span>}
-    iconElementRight={<MenuDropdown />}
   />
 );
 
