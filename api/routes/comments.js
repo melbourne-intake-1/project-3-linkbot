@@ -1,16 +1,18 @@
 const express = require('express');
+const router = express.Router();
 const Comment = require('../models/comment');
 
 // post index page of all Posts
 router.get('/', function(req, res, next) {
+  res.json({ message: 'welcome to the subdirectory' })
   // An empty find method will return all Posts
-  Comment.find()
-    .then(comments => {
-      res.json(comments)
-  })
-  .catch(err => {
-    res.json({ message: err.message })
-  })
+  // Comment.find()
+  //   .then(comments => {
+  //     res.json(comments)
+  // })
+  // .catch(err => {
+  //   res.json({ message: err.message })
+  // })
 });
 //
 // // Get a single Post

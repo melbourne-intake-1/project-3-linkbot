@@ -2,7 +2,11 @@ const express = require('express');
 const router = express.Router();
 const Post = require('../models/post');
 const Comment = require('../models/comment');
+const comments = require('./comments');
+const commentsRouter = express.Router({mergeParams: true});
 const requireAuthorizedUser = require('../middleware/requireAuthorizedUser');
+
+router.use('/:id/comments', commentsRouter)
 
 // post index page of all Posts
 router.get('/', function(req, res, next) {
@@ -66,6 +70,31 @@ router.delete('/:id', (req, res, next) => {
     .then(() => {
       res.json('Post deleted');
     });
+});
+
+// Comment API links 
+// Nested under comment. URL looks like posts/post_id/comments/comment_id_
+commentsRouter.post('/', function(req, res, next) {
+  console.log(req.params.id)
+  //res.json({response: 'hai'})
+  comment = new Comment;
+    comment.content = req.body.content;
+    comment.save((err) => {
+    if (err)
+      res.send(err);
+      res.json({comment});
+    });
+});
+
+commentsRouter.get('/', function(req, res, next) {
+  // An empty find method will return all Posts
+  Comment.find()
+    .then(comments => {
+      res.json(comments)
+  })
+  .catch(err => {
+    res.json({ message: err.message })
+  })
 });
 
 module.exports = router;
