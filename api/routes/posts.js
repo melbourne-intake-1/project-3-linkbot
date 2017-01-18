@@ -79,15 +79,29 @@ commentsRouter.post('/', function(req, res, next) {
   //res.json({response: 'hai'})
   comment = new Comment;
     comment.content = req.body.content;
-    comment.save((err) => {
-    if (err)
-      res.send(err);
-      res.json({comment});
+    comment._post = req.params.id
+    // comment.save((err) => {
+    // if (err)
+    //   res.send(err);
+    //   res.json({comment});
+    // });
+    comment.save((err, doc) => {
+        if (err)
+            res.send(err);
+        Post.findByIdAndUpdate(req.params.id,
+            { $push: { _comments: doc._id } },
+            { new: true },
+            (err, post) => {
+                if (err)
+                    res.send(err);
+                res.json({doc});
+            }
+        )
     });
 });
 
 commentsRouter.get('/', function(req, res, next) {
-  // An empty find method will return all Posts
+  //An empty find method will return all Posts
   Comment.find()
     .then(comments => {
       res.json(comments)
@@ -95,6 +109,7 @@ commentsRouter.get('/', function(req, res, next) {
   .catch(err => {
     res.json({ message: err.message })
   })
+  // res.json({message: req.params.id})
 });
 
 module.exports = router;
