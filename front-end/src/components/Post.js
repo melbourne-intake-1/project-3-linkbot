@@ -58,6 +58,7 @@ class Post extends React.Component {
                   subtitle={post.url}
                 />
                 <CardActions >
+                  <h3>Comments</h3>
                   {
                     post._comments.map((comment) => {
                       return (
