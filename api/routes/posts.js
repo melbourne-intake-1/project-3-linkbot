@@ -28,7 +28,7 @@ postsRouter.get('/', function(req, res, next) {
 // Get a single Post
 postsRouter.get('/:post_id', function(req, res, next) {
   // Use params ID to identify a Post
-  Post.findById(req.params.id)
+  Post.findById(req.params.post_id)
     .populate('_comments')
     .then(post => {
       res.json(post)
