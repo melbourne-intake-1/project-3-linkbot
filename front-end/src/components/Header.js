@@ -1,6 +1,4 @@
-import React from 'react'
-
-//material-ui components
+import React from 'react';
 import AppBar from 'material-ui/AppBar';
 
 const styles = {
@@ -12,7 +10,7 @@ const styles = {
 
 const AppBarExampleIconButton = () => (
   <AppBar
-    style={{width:'100%', backgroundColor: '#253a87'}}
+    style={{width:'100%', backgroundColor: '#f25e02'}}
     title={<span style={styles.title}>LinkBot</span>}
   />
 );
