@@ -9,7 +9,6 @@ const style = {
   width: 250
 };
 
-
 class FormFields extends React.Component {
   constructor() {
     super()
@@ -63,31 +62,36 @@ class FormFields extends React.Component {
       <div>
         <form onSubmit={(event) => this.cleanFieldsAndSubmit(event)}>
           <div>
-            <hr />
-            <h3>Create New Post</h3>
-            <TextField
-              onKeyUp={this.updateTitleField}
-              name='email'
-              type='text'
-              style={ style }
-              floatingLabelText="Title"
-            />
-            <TextField
-              onKeyUp={this.updateBodyField}
-              name='password'
-              type='text'
-              style={ style }
-              floatingLabelText="Body"
-            />
-            <TextField
-              onKeyUp={this.updateUrlField}
-              name='password'
-              type='text'
-              style={ style }
-              floatingLabelText="Link (URL)"
-            />
-             <RaisedButton label="submit" primary={true} style={{ backgroundColor: 'pink100', width: 300, marginTop: 10, marginBottom: 50, textTransform: 'uppercase' }} type='submit' value='submit' />
-           </div>
+            <br/>
+            <span style={{display: 'inline', marginTop: 40, padding: 5}}>
+              <RaisedButton label="Search" style={{ marginRight: 30, width: 120}} />
+              <RaisedButton label="Create Post" /><br/>
+            </span>
+            <div>
+              <TextField
+                onKeyUp={this.updateTitleField}
+                name='title'
+                type='text'
+                style={ style }
+                floatingLabelText="Title"
+              />
+              <TextField
+                onKeyUp={this.updateBodyField}
+                name='body'
+                type='text'
+                style={ style }
+                floatingLabelText="Body"
+              />
+              <TextField
+                onKeyUp={this.updateUrlField}
+                name='url'
+                type='text'
+                style={ style }
+                floatingLabelText="Link (URL)"
+              />
+            </div>
+            <RaisedButton label="submit" primary={true} style={{ width: 300, marginTop: 10, marginBottom: 50, textTransform: 'uppercase' }} type='submit' value='submit' />
+          </div>
         </form>
       </div>
     );

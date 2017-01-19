@@ -1,13 +1,13 @@
-import React from 'react'
-import { getPosts, getPost, upvote, deletePost } from '../api/apiCall'
-import Form from './Form'
+import React from 'react';
+import { getPosts, getPost, upvote, deletePost } from '../api/apiCall';
+import Form from './Form';
 import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
-import Comment from './Comment'
+import Comment from './Comment';
 
 class Post extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       posts: [],
       stuff: 'stuff'
@@ -27,7 +27,6 @@ class Post extends React.Component {
         console.log(response.data)
         this.populatePosts()
       })
-
   }
 
   populatePosts() {
@@ -51,7 +50,6 @@ class Post extends React.Component {
       <div>
         { this.state.posts.map((post) => {
           return (
-
             <Card>
                 <CardHeader
                   title={post.title}
@@ -66,27 +64,14 @@ class Post extends React.Component {
                       )
                     })
                   }
-                  
-                  <FlatButton label={`${post._comments.length} Comments`} />
-                  <FlatButton label="username" />
-                  <FlatButton label="date" />
-                  <p><a href="#" onClick={() => this.deletePost(post)}>Delete Post</a></p>
+                  <div>
+                    <FlatButton label={`${post._comments.length} Comments`} />
+                    <FlatButton label="username" />
+                    <FlatButton label="date" />
+                    <FlatButton label="Delete" onClick={() => this.deletePost(post)}/>
+                  </div>
                 </CardActions>
-                {/* <CardText expandable={true}>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
-                  Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
-                  Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
-                </CardText> */}
             </Card>
-
-            /* <div key={post._id} className="post">
-              <p><a href={post.url}> {post.title}</a></p>
-              <p>{post.body}</p>
-              <p>Votes: {post.votes} <button onClick={() => this.upvotePost(post)}>Upvote</button></p>
-              <p><a href="#" onClick={() => this.deletePost(post)}>Delete Post</a></p>
-              <hr/>
-            </div> */
           )
         })}
         <Form populatePosts={this.populatePosts} />
@@ -96,3 +81,12 @@ class Post extends React.Component {
 }
 
 export default Post;
+
+
+            /* <div key={post._id} className="post">
+              <p><a href={post.url}> {post.title}</a></p>
+              <p>{post.body}</p>
+              <p>Votes: {post.votes} <button onClick={() => this.upvotePost(post)}>Upvote</button></p>
+              <p><a href="#" onClick={() => this.deletePost(post)}>Delete Post</a></p>
+              <hr/>
+            </div> */
