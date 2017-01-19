@@ -3,6 +3,7 @@ import { getPosts, getPost, upvote, deletePost } from '../api/apiCall'
 import Form from './Form'
 import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
+import Comment from './Comment'
 
 class Post extends React.Component {
   constructor(props) {
@@ -56,8 +57,17 @@ class Post extends React.Component {
                   title={post.title}
                   subtitle={post.url}
                 />
-                <CardActions>
-                  <FlatButton label="x comments" />
+                <CardActions >
+                  <h3>Comments</h3>
+                  {
+                    post._comments.map((comment) => {
+                      return (
+                        <Comment commentContent={comment.content} commentID={comment._id} />
+                      )
+                    })
+                  }
+                  
+                  <FlatButton label={`${post._comments.length} Comments`} />
                   <FlatButton label="username" />
                   <FlatButton label="date" />
                   <p><a href="#" onClick={() => this.deletePost(post)}>Delete Post</a></p>
