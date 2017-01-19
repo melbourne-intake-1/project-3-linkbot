@@ -1,11 +1,19 @@
 const express = require('express');
-const router = express.Router();
+
+const postsRouter = express.Router();
 const Post = require('../models/post');
+
+const comments = require('./comments');
+
+const commentsRouter = express.Router({mergeParams: true});
 const Comment = require('../models/comment');
+
 const requireAuthorizedUser = require('../middleware/requireAuthorizedUser');
+// For routes with /comments after :post_id, use the comments route file
+postsRouter.use('/:post_id/comments', comments)
 
 // post index page of all Posts
-router.get('/', function(req, res, next) {
+postsRouter.get('/', function(req, res, next) {
   // An empty find method will return all Posts
   Post.find()
     .populate('_comments')
@@ -18,7 +26,7 @@ router.get('/', function(req, res, next) {
 });
 
 // Get a single Post
-router.get('/:id', function(req, res, next) {
+postsRouter.get('/:post_id', function(req, res, next) {
   // Use params ID to identify a Post
   Post.findById(req.params.id)
     .populate('_comments')
@@ -28,7 +36,7 @@ router.get('/:id', function(req, res, next) {
 });
 
 // Create a post by posting to / route
-router.post('/', function(req, res, next) {
+postsRouter.post('/', function(req, res, next) {
   // Creates a new post from the attributes passed along in the request (req)
     post = new Post;
     post.title = req.body.title;
@@ -44,7 +52,7 @@ router.post('/', function(req, res, next) {
 });
 
 // Update one post
-router.put('/:id', (req, res, next) => {
+postsRouter.put('/:post_id', (req, res, next) => {
   Post.findById(req.params.id)
     .then(post => {
       // checking to see if the params are present, and updating if they are.
@@ -61,11 +69,11 @@ router.put('/:id', (req, res, next) => {
 });
 
 // Delete a post
-router.delete('/:id', (req, res, next) => {
-  Post.findByIdAndRemove(req.params.id)
+postsRouter.delete('/:post_id', (req, res, next) => {
+  Post.findByIdAndRemove(req.params.post_id)
     .then(() => {
       res.json('Post deleted');
     });
 });
 
-module.exports = router;
+module.exports = postsRouter;

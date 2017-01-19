@@ -3,7 +3,8 @@ const db = require('./init');
 
 const commentSchema = new mongoose.Schema({
   // post_id: post_id,
-  body: String,
+  _post: { type: String, ref: 'Post'},
+  content: String,
   posted: { type: Date, default: Date.now() }
 });
 
