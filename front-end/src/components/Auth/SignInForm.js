@@ -93,17 +93,6 @@ export default class SignInForm extends React.PureComponent {
         const { error } = this.state
 
         return (
-
-                    // <label>
-                    //     Email:
-                    //     <input name='email' type='email' />
-                    // </label>
-                    // <label>
-                    //     Password:
-                    //     <input name='password' />
-                    // </label>
-                    // <button type='submit'>Sign In</button>
-
             <div>
                 { error &&
                     <p>{ error.message }</p>

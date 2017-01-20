@@ -8,7 +8,6 @@ import SignedInInfo from './components/Auth/SignedInInfo';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Divider from 'material-ui/Divider';
-
 import './App.css';
 
 class App extends Component {
@@ -55,15 +54,14 @@ class App extends Component {
     return (
 
         <main className="App">
-          <Header />
-          {
-          needsToCheckSignIn ? (<p>Loading…</p>)
-                             : currentUser ? (<SignedInInfo email={currentUser.email}
-                             onUserSignedOut={this.onUserSignedOut} />)
-                             : (<SignInForm onUserSignedIn={this.onUserSignedIn} />)
-          }
-          <Post userSignedIn={this.state.currentUser} />
-          <Divider />
+          <Header userSignedIn={this.state.currentUser} />
+            {
+            needsToCheckSignIn ? (<p>Loading…</p>)
+                               : currentUser ? (<SignedInInfo email={currentUser.email}
+                               onUserSignedOut={this.onUserSignedOut} />)
+                               : (<SignInForm onUserSignedIn={this.onUserSignedIn} />)
+            }
+
           <Footer />
         </main>
 

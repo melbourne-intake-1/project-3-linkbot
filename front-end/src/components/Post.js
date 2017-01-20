@@ -48,30 +48,31 @@ class Post extends React.Component {
   render() {
     return (
       <div>
+        <h3>Posts</h3>
         { this.state.posts.map((post) => {
           return (
-            <Card>
-                <CardHeader
-                  title={post.title}
-                  subtitle={post.url}
-                />
-                <CardActions >
-                  <h3>Comments</h3>
-                  {
-                    post._comments.map((comment) => {
-                      return (
-                        <Comment commentContent={comment.content} commentID={comment._id} />
-                      )
-                    })
-                  }
-                  <div>
-                    <FlatButton label={`${post._comments.length} Comments`} />
-                    <FlatButton label="username" />
-                    <FlatButton label="date" />
-                    <FlatButton label="Delete" onClick={() => this.deletePost(post)}/>
-                  </div>
-                </CardActions>
-            </Card>
+              <Card>
+                  <CardHeader
+                    title={post.title}
+                    subtitle={post.url}
+                  />
+                  <CardActions >
+                    <h3>Comments</h3>
+                    {
+                      post._comments.map((comment) => {
+                        return (
+                          <Comment commentContent={comment.content} commentID={comment._id} />
+                        )
+                      })
+                    }
+                    <div>
+                      <FlatButton label={`${post._comments.length} Comments`} />
+                      <FlatButton label="username" />
+                      <FlatButton label="date" />
+                      <FlatButton label="Delete" onClick={() => this.deletePost(post)}/>
+                    </div>
+                  </CardActions>
+              </Card>
           )
         })}
         <Form populatePosts={this.populatePosts} />
@@ -81,12 +82,3 @@ class Post extends React.Component {
 }
 
 export default Post;
-
-
-            /* <div key={post._id} className="post">
-              <p><a href={post.url}> {post.title}</a></p>
-              <p>{post.body}</p>
-              <p>Votes: {post.votes} <button onClick={() => this.upvotePost(post)}>Upvote</button></p>
-              <p><a href="#" onClick={() => this.deletePost(post)}>Delete Post</a></p>
-              <hr/>
-            </div> */
