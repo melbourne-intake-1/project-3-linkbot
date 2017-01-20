@@ -41,6 +41,7 @@ postsRouter.post('/', function(req, res, next) {
     post = new Post;
     post.title = req.body.title;
     post.url = req.body.url;
+    post.image = req.body.image || 'https://placeholdit.imgix.net/~text?txtsize=14&txt=150%C3%97150&w=150&h=150';
     post.body = req.body.body;
     post.votes = 0;
     console.log(post);
@@ -59,6 +60,7 @@ postsRouter.put('/:post_id', (req, res, next) => {
       if (req.body.title) post.title = req.body.title;
       if (req.body.url) post.url = req.body.url;
       if (req.body.body) post.body = req.body.body;
+      if (req.body.image) post.image = req.body.image;
       if (req.body.votes) post.votes = post.votes + 1;
       post.save((err) => {
         if (err)
