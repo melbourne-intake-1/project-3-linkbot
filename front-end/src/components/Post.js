@@ -4,6 +4,8 @@ import Form from './Form';
 import {Card, CardActions, CardHeader, CardText, CardMedia} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 import Comment from './Comment';
+import SinglePost from './SinglePost';
+
 
 class Post extends React.Component {
   constructor(props) {
@@ -16,7 +18,7 @@ class Post extends React.Component {
     this.upvotePost = this.upvotePost.bind(this)
     this.deletePost = this.deletePost.bind(this)
   }
-  
+
   componentDidMount() {
     this.populatePosts()
   }
@@ -51,31 +53,10 @@ class Post extends React.Component {
         <h3>Posts</h3>
         { this.state.posts.map((post) => {
           return (
-              <Card>
-                  <CardHeader
-                    title={post.title}
-                    subtitle={post.url}
-                    avatar={post.image}
-                  />
-                  <CardActions >
-                    {
-                      post._comments.map((comment) => {
-                        return (
-                          <Comment commentContent={comment.content} commentID={comment._id} />
-                        )
-                      })
-                    }
-                    <div>
-                      <FlatButton label={`${post._comments.length} Comments`} />
-                      <FlatButton label="username" />
-                      <FlatButton label="date" />
-                      <FlatButton label="Delete" secondary={true} onClick={() => this.deletePost(post)}/>
-                    </div>
-                  </CardActions>
-              </Card>
+            <SinglePost currentPost={post}/>
           )
         })}
-        <Form populatePosts={this.populatePosts} />
+        <Form populatePosts={this.populatePosts} deletePost={this.deletePost} />
       </div>
     );
   }
