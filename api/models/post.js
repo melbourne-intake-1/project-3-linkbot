@@ -7,6 +7,7 @@ const postSchema = new mongoose.Schema({
   body: String,
   image: String,
   votes: Number,
+  created: { type: Date, default: Date.now },
   _comments: [{type: mongoose.Schema.Types.ObjectId, ref: "Comment"}]
 });
 
