@@ -9,12 +9,11 @@ import './App.css';
 class PostPage extends Component {
   render() {
     return (
-          <div className="App">
-            <Header />
-            <Post />
-            <FormFields />
-            <Footer />
-          </div>
+      <div className="App">
+        <Header />
+        <Post />
+        <Footer />
+      </div>
     );
   }
 }
