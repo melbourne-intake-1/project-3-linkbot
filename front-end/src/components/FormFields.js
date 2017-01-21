@@ -68,27 +68,9 @@ class FormFields extends React.Component {
               <RaisedButton label="Create Post" /><br/>
             </span>
             <div>
-              <TextField
-                onKeyUp={this.updateTitleField}
-                name='title'
-                type='text'
-                style={ style }
-                floatingLabelText="Title"
-              />
-              <TextField
-                onKeyUp={this.updateBodyField}
-                name='body'
-                type='text'
-                style={ style }
-                floatingLabelText="Body"
-              />
-              <TextField
-                onKeyUp={this.updateUrlField}
-                name='url'
-                type='text'
-                style={ style }
-                floatingLabelText="Link (URL)"
-              />
+              <TextField onKeyUp={this.updateTitleField} name='title' type='text' style={ style } floatingLabelText="Title" />
+              <TextField onKeyUp={this.updateBodyField} name='body' type='text' style={ style } floatingLabelText="Body" />
+              <TextField onKeyUp={this.updateUrlField} name='url' type='text' style={ style } floatingLabelText="Link (URL)" />
             </div>
             <RaisedButton label="submit" primary={true} style={{ width: 300, marginTop: 10, marginBottom: 50, textTransform: 'uppercase' }} type='submit' value='submit' />
           </div>

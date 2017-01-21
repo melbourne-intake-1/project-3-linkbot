@@ -1,14 +1,19 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 import '../App.css';
 
 
-class NotFound extends Component {
-
+class ShowPost extends Component {
   render() {
     return (
-      <h2>Not Found!</h2>
-    )
+          <div className="App">
+            <Header />
+            <h4>URL Not Found!</h4>
+            <Footer />
+          </div>
+    );
   }
 }
 
-export default NotFound;
+export default ShowPost;
