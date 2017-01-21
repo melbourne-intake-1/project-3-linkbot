@@ -1,7 +1,7 @@
 import React from 'react';
 import { getPosts, getPost, upvote, deletePost } from '../api/apiCall';
 import Form from './Form';
-import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
+import {Card, CardActions, CardHeader, CardText, CardMedia} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 import Comment from './Comment';
 
@@ -55,9 +55,9 @@ class Post extends React.Component {
                   <CardHeader
                     title={post.title}
                     subtitle={post.url}
+                    avatar={post.image}
                   />
                   <CardActions >
-                    <h3>Comments</h3>
                     {
                       post._comments.map((comment) => {
                         return (
@@ -69,7 +69,7 @@ class Post extends React.Component {
                       <FlatButton label={`${post._comments.length} Comments`} />
                       <FlatButton label="username" />
                       <FlatButton label="date" />
-                      <FlatButton label="Delete" onClick={() => this.deletePost(post)}/>
+                      <FlatButton label="Delete" secondary={true} onClick={() => this.deletePost(post)}/>
                     </div>
                   </CardActions>
               </Card>
