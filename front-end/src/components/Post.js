@@ -16,7 +16,7 @@ class Post extends React.Component {
     this.upvotePost = this.upvotePost.bind(this)
     this.deletePost = this.deletePost.bind(this)
   }
-
+  
   componentDidMount() {
     this.populatePosts()
   }

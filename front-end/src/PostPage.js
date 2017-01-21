@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Post from './components/Post';
+import FormFields from './components/FormFields';
 import './App.css';
 
 
@@ -11,6 +12,7 @@ class PostPage extends Component {
           <div className="App">
             <Header />
             <Post />
+            <FormFields />
             <Footer />
           </div>
     );

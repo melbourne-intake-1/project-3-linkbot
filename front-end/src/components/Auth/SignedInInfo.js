@@ -16,7 +16,7 @@ export default class SignedInInfo extends React.PureComponent {
     onSignOut(event) {
         event.preventDefault()
         signOut()
-        this.props.onUserSignedOut()    
+        this.props.onUserSignedOut()
     }
 
     render() {

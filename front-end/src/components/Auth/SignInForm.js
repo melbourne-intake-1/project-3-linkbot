@@ -109,8 +109,9 @@ export default class SignInForm extends React.PureComponent {
                   <TextField
                     onKeyUp={this.updateBodyField}
                     name='password'
-                    type='text'
+                    type='password'
                     style={ style }
+
                     floatingLabelText="Password"
                   />
                    <RaisedButton label="submit" primary={true} style={{ backgroundColor: 'pink100', width: 300, marginTop: 10, marginBottom: 30, textTransform: 'uppercase' }} type='submit' value='submit' />
