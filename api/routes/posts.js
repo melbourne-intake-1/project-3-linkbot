@@ -41,7 +41,7 @@ postsRouter.post('/', function(req, res, next) {
     post = new Post;
     post.title = req.body.title;
     post.url = req.body.url;
-    post.image = req.body.image || 'https://placeholdit.imgix.net/~text?txtsize=14&txt=150%C3%97150&w=150&h=150';
+    post.image = req.body.image || 'https://www.fillmurray.com/100/100';
     post.body = req.body.body;
     post.votes = 0;
     console.log(post);
