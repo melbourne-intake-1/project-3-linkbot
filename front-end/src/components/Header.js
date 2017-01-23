@@ -1,18 +1,23 @@
 import React from 'react';
 import AppBar from 'material-ui/AppBar';
+import FlatButton from 'material-ui/FlatButton';
+
 
 const styles = {
   title: {
     cursor: 'pointer',
-    marginRight: 40,
+    marginRight: 80
   },
 };
 
-const AppBarExampleIconButton = () => (
-  <AppBar
-    style={{showMenuIconButton: 'false', width: '100%', backgroundColor: '#0f4970'}}
-    title={<span style={styles.title}>LinkBot</span>}
-  />
+const TopNav = () => (
+  <div>
+    <AppBar
+      style={{width: '100%', backgroundColor: '#0f4970'}}
+      title={<span style={styles.title}>LinkBot</span>}
+      iconElementLeft={<FlatButton label="Logout" style={{backgroundColor: '#1a77c9', color: '#EEE', marginTop: 5}} />}
+    />
+  </div>
 );
 
 class Header extends React.Component {
@@ -21,7 +26,7 @@ class Header extends React.Component {
     return (
       <header style={{clear: 'both'}}>
         <div>
-          <AppBarExampleIconButton />
+          <TopNav />
         </div>
       </header>
     );

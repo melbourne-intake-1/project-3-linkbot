@@ -1,9 +1,6 @@
 import React from 'react';
-import { getPosts, getPost, upvote, deletePost } from '../api/apiCall';
+import { getPosts, upvote, deletePost } from '../api/apiCall';
 import Form from './Form';
-import {Card, CardActions, CardHeader, CardText, CardMedia} from 'material-ui/Card';
-import FlatButton from 'material-ui/FlatButton';
-import Comment from './Comment';
 import SinglePost from './SinglePost';
 
 
@@ -30,7 +27,7 @@ class Post extends React.Component {
         console.log(response.data)
         this.populatePosts()
       })
-    console.log('End of upvote posts')  
+    console.log('End of upvote posts')
   }
 
   populatePosts() {

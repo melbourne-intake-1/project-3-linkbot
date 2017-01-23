@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
 import 'whatwg-fetch'; // Polyfills window.fetch
-import fetchAPI from './api/fetchAPI';
 import { fetchCurrentUser } from './api/auth';
-import Post from './components/Post';
 import SignInForm from './components/Auth/SignInForm';
 import SignedInInfo from './components/Auth/SignedInInfo';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import Divider from 'material-ui/Divider';
 import './App.css';
 
 class App extends Component {

@@ -1,12 +1,9 @@
 import React from 'react';
-import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
-import FlatButton from 'material-ui/FlatButton';
+import {Card, CardActions, CardHeader, CardTitle, CardText} from 'material-ui/Card';
 import Toggle from 'material-ui/Toggle';
-import { getPosts, getPost, upvote, deletePost } from '../api/apiCall';
+import { getPosts, upvote, deletePost } from '../api/apiCall';
 import Comment from './Comment';
-
-import {red500, blue500} from 'material-ui/styles/colors';
-
+import {red500} from 'material-ui/styles/colors';
 import FontIcon from 'material-ui/FontIcon';
 
 
@@ -73,28 +70,28 @@ class SinglePost extends React.Component {
   render() {
     return (
       <div>
-          <Card expanded={this.state.expanded} onExpandChange={this.handleExpandChange} >
-            <CardHeader title={this.props.currentPost.body} subtitle={this.props.currentPost.url} avatar={this.props.currentPost.image} actAsExpander={true}  />
-              <CardText style={{float:'left', marginBottom: 20}}>
-                <Toggle toggled={this.state.expanded} onToggle={this.handleToggle} />
-              </CardText>
-            <CardTitle subtitle={this.props.currentPost.title} expandable={true} />
-            <CardText expandable={true} >
-              <CardActions>
-                {
-                  this.props.currentPost._comments.map((comment) => {
-                    return (
-                      <Comment commentContent={comment.content} commentID={comment._id} />
-                    )
-                  })
-                }
-              </CardActions>
+        <Card expanded={this.state.expanded} onExpandChange={this.handleExpandChange}>
+          <CardHeader title={this.props.currentPost.body} subtitle={this.props.currentPost.url} avatar={this.props.currentPost.image} actAsExpander={true}  />
+            <CardText style={{float:'left', marginBottom: 20}}>
+              <Toggle toggled={this.state.expanded} onToggle={this.handleToggle} />
             </CardText>
-            <div style={{padding: 20}}>
-              <FontIcon style={{cursor:'pointer', marginRight: 50}} label="Upvote" primary={true} onClick={() => this.props.upvotePost(this.props.currentPost)} className="material-icons" color={red500}>favorite_border</FontIcon>
-              <FontIcon style={{cursor:'pointer', marginRight: 50}} cursor='pointer' className="material-icons" label="Delete" secondary={true} onClick={() => this.props.deletePost(this.props.currentPost)}>delete_forever</FontIcon>
-            </div>
-          </Card>
+          <CardTitle subtitle={this.props.currentPost.title} expandable={true} />
+          <CardText expandable={true} >
+            <CardActions>
+              {
+                this.props.currentPost._comments.map((comment) => {
+                  return (
+                    <Comment commentContent={comment.content} commentID={comment._id} />
+                  )
+                })
+              }
+            </CardActions>
+          </CardText>
+          <div style={{padding: 20}}>
+            <FontIcon style={{cursor:'pointer', marginRight: 50, fontSize: 36}} onClick={() => this.props.upvotePost(this.props.currentPost)} className="material-icons" color={red500}>favorite_border</FontIcon>
+            <FontIcon style={{cursor:'pointer', marginRight: 50, fontSize: 36}} cursor='pointer' className="material-icons" onClick={() => this.props.deletePost(this.props.currentPost)}>delete_forever</FontIcon>
+          </div>
+        </Card>
       </div>
     )
   }
