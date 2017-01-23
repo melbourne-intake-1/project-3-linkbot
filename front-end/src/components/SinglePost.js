@@ -86,10 +86,12 @@ class SinglePost extends React.Component {
               </CardActions>
             </CardText>
             <div style={{padding: 20}}>
+              <FlatButton label="Upvote" primary={true} onClick={() => this.props.upvotePost(this.props.currentPost)}/>
+              <FlatButton label="Delete" secondary={true} onClick={() => this.props.deletePost(this.props.currentPost)}/>            
+            </div>
+            <div>
               <FlatButton label={`${this.props.currentPost._comments.length} Comments`} />
-
               <FlatButton label="date" />
-              <FlatButton label="Delete" secondary={true} onClick={() => this.props.deletePost(this.props.currentPost)}/>
             </div>
           </Card>
       </div>

@@ -24,11 +24,13 @@ class Post extends React.Component {
   }
 
   upvotePost(post) {
+    console.log('In upvotePost', post)
     upvote(post._id)
       .then(response => {
         console.log(response.data)
         this.populatePosts()
       })
+    console.log('End of upvote posts')  
   }
 
   populatePosts() {
@@ -53,7 +55,7 @@ class Post extends React.Component {
         <h3>Posts</h3>
         { this.state.posts.map((post) => {
           return (
-            <SinglePost currentPost={post} deletePost={this.deletePost}/>
+            <SinglePost currentPost={post} deletePost={this.deletePost} upvotePost={this.upvotePost} />
           )
         }, this)}
         <Form populatePosts={this.populatePosts} deletePost={this.deletePost} />

@@ -54,8 +54,11 @@ postsRouter.post('/', function(req, res, next) {
 
 // Update one post
 postsRouter.put('/:post_id', (req, res, next) => {
-  Post.findById(req.params.id)
+  Post.findById(req.params.post_id)
     .then(post => {
+      console.log('In Post Put', post)
+      console.log('body', req.body)
+
       // checking to see if the params are present, and updating if they are.
       if (req.body.title) post.title = req.body.title;
       if (req.body.url) post.url = req.body.url;
