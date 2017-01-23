@@ -20,6 +20,7 @@ function getPost(id) {
 }
 
 function upvote(postID) {
+  console.log('In API Call')
   return axios.put('http://localhost:3001/posts/' + postID, {
     // doesn't need a value - just needs to hit the API with anything for votes and it will increment
     votes: 'any old value'
