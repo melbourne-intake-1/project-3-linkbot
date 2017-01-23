@@ -5,6 +5,7 @@ import {Card, CardActions, CardHeader, CardText, CardMedia} from 'material-ui/Ca
 import FlatButton from 'material-ui/FlatButton';
 import Comment from './Comment';
 import SinglePost from './SinglePost';
+import SearchForm from './SearchForm';
 
 
 class Post extends React.Component {
@@ -12,11 +13,19 @@ class Post extends React.Component {
     super(props);
     this.state = {
       posts: [],
-      stuff: 'stuff'
+      filterText: ''
     }
     this.populatePosts = this.populatePosts.bind(this)
     this.upvotePost = this.upvotePost.bind(this)
     this.deletePost = this.deletePost.bind(this)
+    this.searchEntry = this.searchEntry.bind(this)
+  }
+
+  searchEntry(searchValue){
+    console.log(searchValue)
+    this.setState({
+      filterText: searchValue
+    })
   }
 
   componentDidMount() {
@@ -55,10 +64,16 @@ class Post extends React.Component {
     return (
       <div>
         <h3>Posts</h3>
+        <h3>FT: {this.state.filterText}</h3>
+        <SearchForm searchEntry={this.searchEntry} />
         { this.state.posts.map((post) => {
-          return (
-            <SinglePost currentPost={post} deletePost={this.deletePost} upvotePost={this.upvotePost} />
-          )
+          if (post.body.toLowerCase().indexOf(this.state.filterText.toLowerCase()) === -1 ){
+          } else {
+            return (
+              <SinglePost currentPost={post} deletePost={this.deletePost} upvotePost={this.upvotePost} />
+            )
+          }
+          
         }, this)}
         <Form populatePosts={this.populatePosts} deletePost={this.deletePost} />
       </div>
