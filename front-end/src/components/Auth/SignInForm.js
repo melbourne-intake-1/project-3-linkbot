@@ -35,19 +35,6 @@ const style = {
   textIndent: 10
 };
 
-const styles = {
-    form: {
-        padding: '1rem'
-    },
-    label: {
-        display: 'block'
-    },
-    errorMessage: {
-        color: '#dd2200',
-        marginBottom: 0
-    }
-}
-
 export default class SignInForm extends React.PureComponent {
     static propTypes = {
         onUserSignedIn: PropTypes.func.isRequired
@@ -111,7 +98,6 @@ export default class SignInForm extends React.PureComponent {
                     name='password'
                     type='password'
                     style={ style }
-
                     floatingLabelText="Password"
                   />
                    <RaisedButton label="submit" primary={true} style={{ backgroundColor: 'pink100', width: 300, marginTop: 10, marginBottom: 30, textTransform: 'uppercase' }} type='submit' value='submit' />

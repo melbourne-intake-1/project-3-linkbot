@@ -28,9 +28,9 @@ class FormFields extends React.Component {
     event.preventDefault()
     console.log(this)
     this.props.handleSubmit(this.state.title, this.state.body, this.state.url)
-    this.state.title = '';
-    this.state.body = '';
-    this.state.url = '';
+    this.state.title='';
+    this.state.body='';
+    this.state.url='';
   }
 
   updateTitleField(event) {
@@ -63,16 +63,16 @@ class FormFields extends React.Component {
         <form onSubmit={(event) => this.cleanFieldsAndSubmit(event)}>
           <div>
             <br/>
-            <span style={{display: 'inline', marginTop: 40, padding: 5}}>
-              <RaisedButton label="Search" style={{ marginRight: 30, width: 120}} />
-              <RaisedButton label="Create Post" /><br/>
+            <span style={{ marginTop: 40, padding: 5}}>
+              <RaisedButton label="Search" backgroundColor="#23215e" labelColor="#EEE" style={{opacity: 0.85, marginRight: 30, width: 120}} />
+              <RaisedButton label="Create Post" backgroundColor="#2ba00b" labelColor="#EEE" /><br/>
             </span>
             <div>
               <TextField onKeyUp={this.updateTitleField} name='title' type='text' style={ style } floatingLabelText="Title" />
               <TextField onKeyUp={this.updateBodyField} name='body' type='text' style={ style } floatingLabelText="Body" />
               <TextField onKeyUp={this.updateUrlField} name='url' type='text' style={ style } floatingLabelText="Link (URL)" />
             </div>
-            <RaisedButton label="submit" primary={true} style={{ width: 300, marginTop: 10, marginBottom: 50, textTransform: 'uppercase' }} type='submit' value='submit' />
+            <RaisedButton label="submit" backgroundColor= "#d16f0e" labelColor="#EEE" style={{ opacity: 0.85, width: 300, marginTop: 10, marginBottom: 50, textTransform: 'uppercase' }} type='submit' value='submit' />
           </div>
         </form>
       </div>
