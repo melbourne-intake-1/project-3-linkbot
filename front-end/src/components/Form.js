@@ -13,7 +13,7 @@ class Form extends React.Component {
       url: '',
       titlePreview: 'Title Preview',
       bodyPreview: 'Body Preview',
-      urlPreview: 'url'
+      urlPreview: 'URL Preview'
     }
     this.handleSubmit = this.handleSubmit.bind(this)
     this.updateTitle = this.updateTitle.bind(this)
@@ -41,15 +41,15 @@ class Form extends React.Component {
     newPost(body, title, url)
       .then(function(response) {
         popPosts()
-      })  
+      })
     this.cleanFields();
   }
 
   cleanFields() {
     this.setState({
-      urlPreview: '',
       titlePreview: 'Title Preview',
-      bodyPreview: 'Body Preview'
+      bodyPreview: 'Body Preview',
+      urlPreview: 'URL preview'
     })
   }
 

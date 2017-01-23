@@ -10,7 +10,7 @@ const styles = {
 
 const AppBarExampleIconButton = () => (
   <AppBar
-    style={{width:'100%', backgroundColor: '#f25e02'}}
+    style={{showMenuIconButton: 'false', width: '100%', backgroundColor: '#f25e02'}}
     title={<span style={styles.title}>LinkBot</span>}
   />
 );

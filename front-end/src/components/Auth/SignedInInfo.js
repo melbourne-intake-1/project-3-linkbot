@@ -24,7 +24,7 @@ export default class SignedInInfo extends React.PureComponent {
         return (
             <div>
                 <p>{this.props.email}</p>
-                <button onClick={this.onSignOut} >Sign Out</button>
+                <button onClick={this.onSignOut}>Sign Out</button>
                 <Redirect from="/" to="/posts" />
             </div>
         )
