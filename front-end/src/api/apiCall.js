@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+// TODO: use axios.create to stop repeating host in url
+
 function getPosts() {
   return axios.get('http://localhost:3001/posts')
     .then(function (response) {
@@ -10,13 +12,10 @@ function getPosts() {
     })
 }
 
-function getPost() {
-  return axios.get('http://localhost:3001/posts')
+function getPost(id) {
+  return axios.get(`http://localhost:3001/posts/${id}`)
     .then(function (response) {
       return response
-    })
-    .catch(function (error) {
-      console.log(error)
     })
 }
 

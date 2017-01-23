@@ -19,10 +19,10 @@ postsRouter.get('/', function(req, res, next) {
     .populate('_comments')
     .then(posts => {
       res.json(posts)
-  })
-  .catch(err => {
-    res.json({ message: err.message })
-  })
+    })
+    .catch(err => {
+      res.json({ message: err.message })
+    })
 });
 
 // Get a single Post
@@ -32,6 +32,9 @@ postsRouter.get('/:post_id', function(req, res, next) {
     .populate('_comments')
     .then(post => {
       res.json(post)
+    })
+    .catch(err => {
+      res.status(404).json({ message: err.message })
     })
 });
 

@@ -44,7 +44,7 @@ class SinglePost extends React.Component {
     deletePost(post._id)
       .then(response => {
         console.log(response.data)
-        
+
       })
     // this.props.populatePosts()
   }

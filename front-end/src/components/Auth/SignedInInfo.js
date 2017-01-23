@@ -1,5 +1,6 @@
 import React from 'react'
-import { signOut } from '../../api/auth'
+import { signOut } from '../../api/auth';
+import { Redirect } from 'react-router';
 
 export default class SignedInInfo extends React.PureComponent {
 
@@ -24,6 +25,7 @@ export default class SignedInInfo extends React.PureComponent {
             <div>
                 <p>{this.props.email}</p>
                 <button onClick={this.onSignOut} >Sign Out</button>
+                <Redirect from="/" to="/posts" />
             </div>
         )
     }

@@ -48,6 +48,8 @@ class Post extends React.Component {
   }
 
   render() {
+    console.log('this.state.posts', this.state.posts)
+
     return (
       <div>
         <h3>Posts</h3>
