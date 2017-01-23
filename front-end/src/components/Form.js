@@ -36,7 +36,7 @@ class Form extends React.Component {
     this.setState({bodyPreview: e.target.value})
   }
 
-  handleSubmit(body, title, url) {
+  handleSubmit(title, body, url) {
     var popPosts = this.props.populatePosts
     newPost(body, title, url)
       .then(function(response) {
