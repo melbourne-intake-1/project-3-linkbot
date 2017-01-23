@@ -61,7 +61,6 @@ class Post extends React.Component {
     return (
       <div>
         <h3>Posts</h3>
-        <h3>FT: {this.state.filterText}</h3>
         <SearchForm searchEntry={this.searchEntry} />
         { this.state.posts.map((post) => {
           if (post.body.toLowerCase().indexOf(this.state.filterText.toLowerCase()) === -1 ){
