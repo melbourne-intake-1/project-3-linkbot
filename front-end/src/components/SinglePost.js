@@ -44,8 +44,9 @@ class SinglePost extends React.Component {
     deletePost(post._id)
       .then(response => {
         console.log(response.data)
-        this.populatePosts()
+        
       })
+    // this.props.populatePosts()
   }
 
   handleExpandChange = (expanded) => {
@@ -88,7 +89,7 @@ class SinglePost extends React.Component {
               <FlatButton label={`${this.props.currentPost._comments.length} Comments`} />
 
               <FlatButton label="date" />
-              <FlatButton label="Delete" secondary={true} onClick={() => this.props.deletePost(this.props.currentPost)}/>
+              <FlatButton label="Delete" secondary={true} onClick={() => this.deletePost(this.props.currentPost)}/>
             </div>
           </Card>
       </div>

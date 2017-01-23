@@ -55,7 +55,7 @@ class Post extends React.Component {
           return (
             <SinglePost currentPost={post}/>
           )
-        })}
+        }, this)}
         <Form populatePosts={this.populatePosts} deletePost={this.deletePost} />
       </div>
     );
