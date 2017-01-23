@@ -5,6 +5,11 @@ import Toggle from 'material-ui/Toggle';
 import { getPosts, getPost, upvote, deletePost } from '../api/apiCall';
 import Comment from './Comment';
 
+import {red500, blue500} from 'material-ui/styles/colors';
+
+import FontIcon from 'material-ui/FontIcon';
+
+
 class SinglePost extends React.Component {
 
   constructor(props) {
@@ -86,12 +91,8 @@ class SinglePost extends React.Component {
               </CardActions>
             </CardText>
             <div style={{padding: 20}}>
-              <FlatButton label="Upvote" primary={true} onClick={() => this.props.upvotePost(this.props.currentPost)}/>
-              <FlatButton label="Delete" secondary={true} onClick={() => this.props.deletePost(this.props.currentPost)}/>            
-            </div>
-            <div>
-              <FlatButton label={`${this.props.currentPost._comments.length} Comments`} />
-              <FlatButton label="date" />
+              <FontIcon style={{cursor:'pointer', marginRight: 50}} label="Upvote" primary={true} onClick={() => this.props.upvotePost(this.props.currentPost)} className="material-icons" color={red500}>favorite_border</FontIcon>
+              <FontIcon style={{cursor:'pointer', marginRight: 50}} cursor='pointer' className="material-icons" label="Delete" secondary={true} onClick={() => this.props.deletePost(this.props.currentPost)}>delete_forever</FontIcon>
             </div>
           </Card>
       </div>

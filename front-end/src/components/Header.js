@@ -10,22 +10,16 @@ const styles = {
 
 const AppBarExampleIconButton = () => (
   <AppBar
-    style={{showMenuIconButton: 'false', width: '100%', backgroundColor: '#f25e02'}}
+    style={{showMenuIconButton: 'false', width: '100%', backgroundColor: '#0f4970'}}
     title={<span style={styles.title}>LinkBot</span>}
   />
 );
 
 class Header extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-    };
-  }
 
   render() {
     return (
-      <header style={{ clear: 'both' }}>
+      <header style={{clear: 'both'}}>
         <div>
           <AppBarExampleIconButton />
         </div>
