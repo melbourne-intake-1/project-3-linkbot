@@ -7,6 +7,9 @@ import ShowPost from './ShowPost';
 import { BrowserRouter, Match, Miss } from 'react-router';
 import './App.css';
 
+import injectTapEventPlugin from 'react-tap-event-plugin';
+injectTapEventPlugin();
+
 // Material themes
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
