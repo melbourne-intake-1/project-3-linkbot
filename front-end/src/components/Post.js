@@ -53,7 +53,7 @@ class Post extends React.Component {
         <h3>Posts</h3>
         { this.state.posts.map((post) => {
           return (
-            <SinglePost currentPost={post}/>
+            <SinglePost currentPost={post} deletePost={this.deletePost}/>
           )
         }, this)}
         <Form populatePosts={this.populatePosts} deletePost={this.deletePost} />
