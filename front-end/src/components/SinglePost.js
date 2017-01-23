@@ -71,7 +71,7 @@ class SinglePost extends React.Component {
     return (
       <div>
         <Card expanded={this.state.expanded} onExpandChange={this.handleExpandChange}>
-          <CardHeader title={this.props.currentPost.title} subtitle={this.props.currentPost.url} avatar={this.props.currentPost.image} actAsExpander={true}  />
+          <CardHeader title={this.props.currentPost.title} subtitle={`${this.props.currentPost.url} - ${this.props.currentPost.votes} votes `} avatar={this.props.currentPost.image} actAsExpander={true}  />
             <CardText style={{float:'left', marginBottom: 20}}>
               <Toggle toggled={this.state.expanded} onToggle={this.handleToggle} />
             </CardText>
