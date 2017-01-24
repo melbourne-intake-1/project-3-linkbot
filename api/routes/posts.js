@@ -57,6 +57,7 @@ postsRouter.post('/', function(req, res, next) {
 
 // Update one post
 postsRouter.put('/:post_id', (req, res, next) => {
+  console.log('PUT POST', req.body)
   Post.findById(req.params.post_id)
     .then(post => {
       console.log('In Post Put', post)

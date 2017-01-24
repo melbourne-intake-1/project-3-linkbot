@@ -1,9 +1,11 @@
 import axios from 'axios';
 
 // TODO: use axios.create to stop repeating host in url
+// (process.env.REACT_APP_API_URL + path, options)
 
 function getPosts() {
-  return axios.get('http://localhost:3001/posts')
+  let apiPath = `${process.env.REACT_APP_POSTS_URL}posts/`
+  return axios.get(apiPath)
     .then(function (response) {
       return response
     })
@@ -13,7 +15,7 @@ function getPosts() {
 }
 
 function getPost(id) {
-  return axios.get(`http://localhost:3001/posts/${id}`)
+  return axios.get(`${process.env.REACT_APP_POSTS_URL}${id}`)
     .then(function (response) {
       return response
     })
@@ -21,7 +23,10 @@ function getPost(id) {
 
 function upvote(postID) {
   console.log('In API Call')
-  return axios.put('http://localhost:3001/posts/' + postID, {
+  let apiPath = `${process.env.REACT_APP_POSTS_URL}posts/${postID}`
+  console.log('APIPATH', apiPath)
+  console.log('http://localhost:3001/posts/' + postID)
+  return axios.put(apiPath, {
     // doesn't need a value - just needs to hit the API with anything for votes and it will increment
     votes: 'any old value'
   })
