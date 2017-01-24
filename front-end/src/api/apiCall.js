@@ -39,7 +39,8 @@ function upvote(postID) {
 }
 
 function newPost(body, title, url) {
-  return axios.post('http://localhost:3001/posts', {
+  let apiPath = `${process.env.REACT_APP_POSTS_URL}posts/`
+  return axios.post(apiPath, {
     title: title,
     body: body,
     url: url
@@ -52,8 +53,9 @@ function newPost(body, title, url) {
     })
 }
 
-function deletePost(post) {
-  return axios.delete('http://localhost:3001/posts/' + post)
+function deletePost(postID) {
+  let apiPath = `${process.env.REACT_APP_POSTS_URL}posts/${postID}`
+  return axios.delete(apiPath)
     .then(function (response) {
       return response
     })
