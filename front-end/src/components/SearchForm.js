@@ -2,7 +2,7 @@ import React from 'react';
 import { TextField } from 'material-ui/';
 
 const style = {
-  backgroundColor: "#efefe6",
+  backgroundColor: "#efefef",
   borderRadius: 5,
   margin: 10,
   padding: 0,
@@ -10,14 +10,13 @@ const style = {
   width: 250
 };
 
-class SearchForm extends React.Component {
+export default class SearchForm extends React.Component {
   constructor() {
     super()
     this.state = {
 
     }
     this.searchEntry = this.searchEntry.bind(this)
-
   }
 
   searchEntry(e){
@@ -37,5 +36,3 @@ class SearchForm extends React.Component {
     );
   }
 }
-
-export default SearchForm;
