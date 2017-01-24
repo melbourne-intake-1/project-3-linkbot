@@ -60,7 +60,6 @@ class Post extends React.Component {
 
     return (
       <div>
-        <h3>Posts</h3>
         <SearchForm searchEntry={this.searchEntry} />
         { this.state.posts.map((post) => {
           if (post.body.toLowerCase().indexOf(this.state.filterText.toLowerCase()) === -1 ){
@@ -69,7 +68,7 @@ class Post extends React.Component {
               <SinglePost currentPost={post} deletePost={this.deletePost} upvotePost={this.upvotePost} />
             )
           }
-          
+
         }, this)}
         <Form populatePosts={this.populatePosts} deletePost={this.deletePost} />
       </div>

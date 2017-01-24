@@ -28,7 +28,7 @@ export default class SearchForm extends React.Component {
     return (
       <div>
         <form>
-          <div>
+          <div style={{margin: 20}}>
             <TextField onKeyUp={this.searchEntry} name='search' type='text' style={ style } floatingLabelText="Search Posts" />
           </div>
         </form>

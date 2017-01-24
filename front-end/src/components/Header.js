@@ -11,7 +11,7 @@ export default class Header extends React.Component {
       <div>
         <AppBar
           style={{width: '100%', backgroundColor: '#0f4970'}}
-          title={<span style={{cursor: 'pointer', marginRight: 80}}>LinkBot</span>}
+          title={<span style={{cursor: 'pointer', letterSpacing: 0.15, marginRight: 80}}>LinkB<i className="material-icons">android</i>t</span>}
           iconElementLeft={<FlatButton label="Logout" style={{backgroundColor: '#1a77c9', color: '#EEE', marginTop: 5}} />}
         />
       </div>
