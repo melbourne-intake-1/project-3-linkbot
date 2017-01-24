@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 import React, { Component } from 'react';
 import 'whatwg-fetch'; // Polyfills window.fetch
 import { fetchCurrentUser } from './api/auth';
