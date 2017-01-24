@@ -1,6 +1,5 @@
 import React, { PropTypes } from 'react'
 import { signIn } from '../../api/auth'
-
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 
@@ -9,7 +8,6 @@ function validatedSignIn({ email, password }) {
     // Trim to remove spaces
     email = email.trim()
     password = password.trim()
-
     // Check for missing email
     if (email.length === 0) {
         return Promise.reject(new Error('Please enter an email'))
@@ -18,14 +16,11 @@ function validatedSignIn({ email, password }) {
     else if (password.length === 0) {
         return Promise.reject(new Error('Please enter a password'))
     }
-
     // All validated, so sign in
     return signIn({ email, password })
 }
 
-// CSS styles we use in render() below
 const style = {
-
   borderRadius: 5,
   display: 'block',
   marginBottom: 10,
@@ -81,28 +76,16 @@ export default class SignInForm extends React.PureComponent {
 
         return (
             <div>
-                { error &&
-                    <p>{ error.message }</p>
-                }
+              { error &&
+                <p>{ error.message }</p>
+              }
               <form onSubmit={ this.onSignIn }>
                 <div>
-                  <TextField
-                    onKeyUp={this.updateTitleField}
-                    name='email'
-                    type='email'
-                    style={ style }
-                    floatingLabelText="Email"
-                  />
-                  <TextField
-                    onKeyUp={this.updateBodyField}
-                    name='password'
-                    type='password'
-                    style={ style }
-                    floatingLabelText="Password"
-                  />
-                   <RaisedButton label="submit" primary={true} style={{ backgroundColor: 'pink100', width: 300, marginTop: 10, marginBottom: 30, textTransform: 'uppercase' }} type='submit' value='submit' />
-                 </div>
-               </form>
+                  <TextField onKeyUp={this.updateTitleField} name='email' type='email' style={ style } floatingLabelText="Email" />
+                  <TextField onKeyUp={this.updateBodyField} name='password' type='password' style={ style } floatingLabelText="Password" />
+                  <RaisedButton label="submit" primary={true} style={{ backgroundColor: 'pink100', width: 300, marginTop: 10, marginBottom: 30, textTransform: 'uppercase' }} type='submit' value='submit' />
+                </div>
+              </form>
             </div>
         )
     }

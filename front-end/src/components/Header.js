@@ -1,36 +1,20 @@
 import React from 'react';
 import AppBar from 'material-ui/AppBar';
 import FlatButton from 'material-ui/FlatButton';
+// import signOut from './Auth/SignedInInfo';
+import { signOut } from '../api/auth';
 
-
-const styles = {
-  title: {
-    cursor: 'pointer',
-    marginRight: 80
-  },
-};
-
-const TopNav = () => (
-  <div>
-    <AppBar
-      style={{width: '100%', backgroundColor: '#0f4970'}}
-      title={<span style={styles.title}>LinkBot</span>}
-      iconElementLeft={<FlatButton label="Logout" style={{backgroundColor: '#1a77c9', color: '#EEE', marginTop: 5}} />}
-    />
-  </div>
-);
-
-class Header extends React.Component {
+export default class Header extends React.Component {
 
   render() {
     return (
-      <header style={{clear: 'both'}}>
-        <div>
-          <TopNav />
-        </div>
-      </header>
+      <div>
+        <AppBar
+          style={{width: '100%', backgroundColor: '#0f4970'}}
+          title={<span style={{cursor: 'pointer', marginRight: 80}}>LinkBot</span>}
+          iconElementLeft={<FlatButton onClick={signOut()} label="Logout" style={{backgroundColor: '#1a77c9', color: '#EEE', marginTop: 5}} />}
+        />
+      </div>
     );
   }
 }
-
-export default Header;

@@ -4,29 +4,29 @@ import { Redirect } from 'react-router';
 
 export default class SignedInInfo extends React.PureComponent {
 
-    constructor(props) {
-        super(props)
+  constructor(props) {
+    super(props)
 
-        this.state = {
-            error: null
-        }
-
-        this.onSignOut = this.onSignOut.bind(this)
+    this.state = {
+        error: null
     }
 
-    onSignOut(event) {
-        event.preventDefault()
-        signOut()
-        this.props.onUserSignedOut()
-    }
+    this.onSignOut = this.onSignOut.bind(this)
+  }
 
-    render() {
-        return (
-            <div>
-                <p>{this.props.email}</p>
-                <button onClick={this.onSignOut}>Sign Out</button>
-                <Redirect from="/" to="/posts" />
-            </div>
-        )
-    }
+  onSignOut(event) {
+    event.preventDefault()
+    signOut()
+    this.props.onUserSignedOut()
+  }
+
+  render() {
+    return (
+      <div>
+          <p>{this.props.email}</p>
+          <button onClick={this.onSignOut}>Sign Out</button>
+          <Redirect from="/" to="/posts" />
+      </div>
+    )
+  }
 }

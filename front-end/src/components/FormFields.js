@@ -1,5 +1,7 @@
 import React from 'react';
-import { TextField, RaisedButton } from 'material-ui/';
+import { TextField, RaisedButton, FlatButton } from 'material-ui/';
+import {Card, CardHeader, CardTitle, CardText} from 'material-ui/Card';
+import Toggle from 'material-ui/Toggle';
 
 const style = {
   borderRadius: 5,
@@ -15,7 +17,8 @@ class FormFields extends React.Component {
     this.state = {
       title: '',
       body: '',
-      url: ''
+      url: '',
+      expanded: 'false'
     }
 
     this.updateTitleField = this.updateTitleField.bind(this)
@@ -23,6 +26,22 @@ class FormFields extends React.Component {
     this.updateUrlField = this.updateUrlField.bind(this)
     this.cleanFields = this.cleanFieldsAndSubmit.bind(this)
   }
+
+  handleExpandChange = (expanded) => {
+    this.setState({expanded: expanded});
+  };
+
+  handleToggle = (event, toggle) => {
+    this.setState({expanded: toggle});
+  };
+
+  handleExpand = () => {
+    this.setState({expanded: true});
+  };
+
+  handleReduce = () => {
+    this.setState({expanded: false});
+  };
 
   cleanFieldsAndSubmit(event) {
     event.preventDefault()
@@ -63,16 +82,15 @@ class FormFields extends React.Component {
         <form onSubmit={(event) => this.cleanFieldsAndSubmit(event)}>
           <div>
             <br/>
-            <span style={{ marginTop: 40, padding: 5}}>
-              <RaisedButton label="Search" backgroundColor="#23215e" labelColor="#EEE" style={{opacity: 0.85, marginRight: 30, width: 120}} />
-              <RaisedButton label="Create Post" backgroundColor="#2ba00b" labelColor="#EEE" /><br/>
-            </span>
-            <div>
-              <TextField onKeyUp={this.updateTitleField} name='title' type='text' style={ style } floatingLabelText="Title" />
-              <TextField onKeyUp={this.updateBodyField} name='body' type='text' style={ style } floatingLabelText="Body" />
-              <TextField onKeyUp={this.updateUrlField} name='url' type='text' style={ style } floatingLabelText="Link (URL)" />
-            </div>
-            <RaisedButton label="submit" backgroundColor= "#d16f0e" labelColor="#EEE" style={{ opacity: 0.85, width: 300, marginTop: 10, marginBottom: 50, textTransform: 'uppercase' }} type='submit' value='submit' />
+              <Card onExpandChange={this.handleExpandChange}>
+                <CardHeader title="Create a post" actAsExpander={true} showExpandableButton={true} titleColor="#444" style={{backgroundColor:"#54e59a", borderRadius:5, marginBottom:20, marginLeft:'auto', marginRight:'auto', marginTop:10, textTransform:'uppercase', width: 250}} />
+                <div expandable={true}>
+                  <TextField onKeyUp={this.updateTitleField} name='title' type='text' style={ style } floatingLabelText="Title" />
+                  <TextField onKeyUp={this.updateBodyField} name='body' type='text' style={ style } floatingLabelText="Body" />
+                  <TextField onKeyUp={this.updateUrlField} name='url' type='text' style={ style } floatingLabelText="Link (URL)" />
+                  <RaisedButton label="submit" backgroundColor= "#4bc4f4" labelColor="#EEE" style={{marginBottom: 50, marginTop: 10, opacity: 0.85, textTransform: 'uppercase', width: 250}} type='submit' value='submit' />
+                </div>
+              </Card>
           </div>
         </form>
       </div>
