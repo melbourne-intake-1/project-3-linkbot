@@ -3,7 +3,7 @@
 ### By [@thrillho02](https://twitter.com/thrillho02) and [@jhinch](https://twitter.com/jhinch)
 
 #### NodeJS / Express API hosted on Heroku: [https://blooming-everglades-90688.herokuapp.com/](https://blooming-everglades-90688.herokuapp.com/)
-#### ReactJS frontend hosted: ~~not yet hosted~~
+#### ReactJS frontend hosted: [https://build-elkpuqkpan.now.sh](https://build-elkpuqkpan.now.sh)
 
 **Project Trello:** [Trello Board](https://trello.com/b/nBv1xJOz/major-project-3-linkbot)
 **Project Figma:** [Figma](https://www.figma.com/file/OmPop1ucxxg2tiWpxDAOjYEs/LinkBot)

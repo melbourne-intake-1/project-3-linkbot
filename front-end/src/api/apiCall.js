@@ -4,7 +4,7 @@ import axios from 'axios';
 // (process.env.REACT_APP_API_URL + path, options)
 
 function getPosts() {
-  let apiPath = `${process.env.REACT_APP_POSTS_URL}posts/`
+  let apiPath = `${process.env.REACT_APP_POSTS_URL}/posts/`
   return axios.get(apiPath)
     .then(function (response) {
       return response
@@ -15,7 +15,7 @@ function getPosts() {
 }
 
 function getPost(id) {
-  return axios.get(`${process.env.REACT_APP_POSTS_URL}${id}`)
+  return axios.get(`${process.env.REACT_APP_POSTS_URL}/${id}`)
     .then(function (response) {
       return response
     })
@@ -23,7 +23,7 @@ function getPost(id) {
 
 function upvote(postID) {
   console.log('In API Call')
-  let apiPath = `${process.env.REACT_APP_POSTS_URL}posts/${postID}`
+  let apiPath = `${process.env.REACT_APP_POSTS_URL}/posts/${postID}`
   console.log('APIPATH', apiPath)
   console.log('http://localhost:3001/posts/' + postID)
   return axios.put(apiPath, {
@@ -39,7 +39,8 @@ function upvote(postID) {
 }
 
 function newPost(body, title, url) {
-  return axios.post('http://localhost:3001/posts', {
+  let apiPath = `${process.env.REACT_APP_POSTS_URL}/posts/`
+  return axios.post(apiPath, {
     title: title,
     body: body,
     url: url
@@ -52,8 +53,9 @@ function newPost(body, title, url) {
     })
 }
 
-function deletePost(post) {
-  return axios.delete('http://localhost:3001/posts/' + post)
+function deletePost(postID) {
+  let apiPath = `${process.env.REACT_APP_POSTS_URL}/posts/${postID}`
+  return axios.delete(apiPath)
     .then(function (response) {
       return response
     })
