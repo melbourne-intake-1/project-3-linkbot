@@ -4,8 +4,7 @@ import Footer from './components/Footer';
 import SinglePost from './components/SinglePost';
 import { getPost } from './api/apiCall';
 
-
-class ShowPost extends Component {
+export default class ShowPost extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -47,5 +46,3 @@ class ShowPost extends Component {
     );
   }
 }
-
-export default ShowPost;

@@ -1,14 +1,11 @@
 import React from 'react';
-import {Card, CardActions, CardHeader, CardTitle, CardText} from 'material-ui/Card';
-import Toggle from 'material-ui/Toggle';
+import {Card, CardActions, CardHeader, CardTitle} from 'material-ui/Card';
 import { getPosts, upvote, deletePost } from '../api/apiCall';
-import Comment from './Comment';
 import FontIcon from 'material-ui/FontIcon';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import ContentAdd from 'material-ui/svg-icons/content/add';
 
-
-class SinglePost extends React.Component {
+export default class SinglePost extends React.Component {
 
   constructor(props) {
     super(props);
@@ -73,29 +70,15 @@ class SinglePost extends React.Component {
       <div>
         <Card expanded={this.state.expanded} onExpandChange={this.handleExpandChange}>
           <CardHeader showExpandableButton={true} title={this.props.currentPost.title} subtitle={`${this.props.currentPost.url} - ${this.props.currentPost.votes} votes `} avatar={this.props.currentPost.image} actAsExpander={true}  />
-
-          <CardTitle subtitle={this.props.currentPost.body} expandable={true} />
-          <CardText expandable={true} >
-            <CardActions>
-              {
-                this.props.currentPost._comments.map((comment) => {
-                  return (
-                    <Comment commentContent={comment.content} commentID={comment._id} />
-                  )
-                })
-              }
-            </CardActions>
-          </CardText>
-          <div style={{marginRight: 60, padding: 10}}>
+          <CardTitle subtitle={this.props.currentPost.body} expandable={true} style={{backgroundColor:"#efefef"}} />
+          <div style={{padding: 10}}>
             <FloatingActionButton mini={true} onClick={() => this.props.upvotePost(this.props.currentPost)} style={{cursor:'pointer', marginRight:50}}>
               <ContentAdd />
             </FloatingActionButton>
-            <FontIcon style={{cursor:'pointer', fontSize: 36}} cursor='pointer' className="material-icons" onClick={() => this.props.deletePost(this.props.currentPost)}>delete_forever</FontIcon>
+            <FontIcon style={{cursor:'pointer', fontSize: 36, marginBottom: 20}} hoverColor='#ea2a3d' cursor='pointer' className="material-icons" onClick={() => this.props.deletePost(this.props.currentPost)}>delete_forever</FontIcon>
           </div>
         </Card>
       </div>
     )
   }
 }
-
-export default SinglePost;
