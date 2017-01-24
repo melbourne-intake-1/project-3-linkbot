@@ -3,8 +3,9 @@ import {Card, CardActions, CardHeader, CardTitle, CardText} from 'material-ui/Ca
 import Toggle from 'material-ui/Toggle';
 import { getPosts, upvote, deletePost } from '../api/apiCall';
 import Comment from './Comment';
-import {red500} from 'material-ui/styles/colors';
 import FontIcon from 'material-ui/FontIcon';
+import FloatingActionButton from 'material-ui/FloatingActionButton';
+import ContentAdd from 'material-ui/svg-icons/content/add';
 
 
 class SinglePost extends React.Component {
@@ -71,10 +72,8 @@ class SinglePost extends React.Component {
     return (
       <div>
         <Card expanded={this.state.expanded} onExpandChange={this.handleExpandChange}>
-          <CardHeader title={this.props.currentPost.title} subtitle={`${this.props.currentPost.url} - ${this.props.currentPost.votes} votes `} avatar={this.props.currentPost.image} actAsExpander={true}  />
-            <CardText style={{float:'left', marginBottom: 20}}>
-              <Toggle toggled={this.state.expanded} onToggle={this.handleToggle} />
-            </CardText>
+          <CardHeader showExpandableButton={true} title={this.props.currentPost.title} subtitle={`${this.props.currentPost.url} - ${this.props.currentPost.votes} votes `} avatar={this.props.currentPost.image} actAsExpander={true}  />
+
           <CardTitle subtitle={this.props.currentPost.body} expandable={true} />
           <CardText expandable={true} >
             <CardActions>
@@ -87,9 +86,11 @@ class SinglePost extends React.Component {
               }
             </CardActions>
           </CardText>
-          <div style={{padding: 20}}>
-            <FontIcon style={{cursor:'pointer', marginRight: 50, fontSize: 36}} onClick={() => this.props.upvotePost(this.props.currentPost)} className="material-icons" color={red500}>favorite_border</FontIcon>
-            <FontIcon style={{cursor:'pointer', marginRight: 50, fontSize: 36}} cursor='pointer' className="material-icons" onClick={() => this.props.deletePost(this.props.currentPost)}>delete_forever</FontIcon>
+          <div style={{marginRight: 60, padding: 10}}>
+            <FloatingActionButton mini={true} onClick={() => this.props.upvotePost(this.props.currentPost)} style={{cursor:'pointer', marginRight:50}}>
+              <ContentAdd />
+            </FloatingActionButton>
+            <FontIcon style={{cursor:'pointer', fontSize: 36}} cursor='pointer' className="material-icons" onClick={() => this.props.deletePost(this.props.currentPost)}>delete_forever</FontIcon>
           </div>
         </Card>
       </div>

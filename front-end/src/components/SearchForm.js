@@ -1,7 +1,8 @@
 import React from 'react';
-import { TextField, RaisedButton } from 'material-ui/';
+import { TextField } from 'material-ui/';
 
 const style = {
+  backgroundColor: "#efefe6",
   borderRadius: 5,
   margin: 10,
   padding: 0,
@@ -29,7 +30,7 @@ class SearchForm extends React.Component {
       <div>
         <form>
           <div>
-            <TextField onKeyUp={this.searchEntry} name='search' type='text' style={ style } floatingLabelText="Search" />
+            <TextField onKeyUp={this.searchEntry} name='search' type='text' style={ style } floatingLabelText="Search Posts" />
           </div>
         </form>
       </div>
