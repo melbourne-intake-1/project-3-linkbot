@@ -62,7 +62,9 @@ class Post extends React.Component {
       <div>
         <SearchForm searchEntry={this.searchEntry} />
         { this.state.posts.map((post) => {
-          if (post.body.toLowerCase().indexOf(this.state.filterText.toLowerCase()) === -1 ){
+          let postTerms = (post.body + ' ' + post.title).toLowerCase() 
+          console.log("Posterms", postTerms)
+          if (postTerms.indexOf(this.state.filterText.toLowerCase()) === -1 && this.state.filterText.length > 2 ){
           } else {
             return (
               <SinglePost currentPost={post} deletePost={this.deletePost} upvotePost={this.upvotePost} />
