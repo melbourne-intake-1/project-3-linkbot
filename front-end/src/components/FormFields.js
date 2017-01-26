@@ -3,8 +3,9 @@ import { TextField, RaisedButton } from 'material-ui/';
 import {Card, CardHeader } from 'material-ui/Card';
 
 const style = {
+  backgroundColor: "#efefef",
   borderRadius: 5,
-  margin: 10,
+  margin: 5,
   padding: 0,
   textIndent: 10,
   width: 250
@@ -13,7 +14,7 @@ const style = {
 export default class FormFields extends React.Component {
 
   constructor() {
-    super()
+    super();
     this.state = {
       title: '',
       body: '',
@@ -82,13 +83,21 @@ export default class FormFields extends React.Component {
         <form onSubmit={(event) => this.cleanFieldsAndSubmit(event)}>
           <div>
             <br/>
-              <Card onExpandChange={this.handleExpandChange}>
-                <CardHeader title="Create a post" actAsExpander={true} showExpandableButton={true} titleColor="#444" style={{backgroundColor:"#54e59a", borderRadius:5, marginBottom:20, marginLeft:'auto', marginRight:'auto', marginTop:10, textTransform:'uppercase', width: 250}} />
+              <Card style={{boxShadow:'none'}} onExpandChange={this.handleExpandChange}>
+                <CardHeader title="Create a post" actAsExpander={true} showExpandableButton={true} titleColor="#444"
+                  style={{backgroundColor:"#5bc66f", borderRadius:5, boxShadow: "2px 2px 2px #777", marginBottom: 30, marginLeft:'auto', marginRight:'auto', marginTop:20, textTransform:'uppercase', width: 250}}
+                />
                 <div expandable={true}>
-                  <TextField onKeyUp={this.updateTitleField} name='title' type='text' style={ style } floatingLabelText="Title" />
-                  <TextField onKeyUp={this.updateBodyField} name='body' type='text' style={ style } floatingLabelText="Body" />
-                  <TextField onKeyUp={this.updateUrlField} name='url' type='text' style={ style } floatingLabelText="Link (URL)" />
-                  <RaisedButton label="submit" backgroundColor= "#525ac4" labelColor="#EEE" style={{marginBottom: 50, marginTop: 10, textTransform: 'uppercase', width: 250}} type='submit' value='submit' />
+                  <TextField required onKeyUp={this.updateTitleField} name='title'
+                    type='text' style={ style } floatingLabelText="Title" />
+                  <TextField required onKeyUp={this.updateBodyField} name='body'
+                    type='text' style={ style } floatingLabelText="Body" />
+                  <TextField required onKeyUp={this.updateUrlField} name='url'
+                    type='text' style={ style } floatingLabelText="URL" hintText="E.g. www.google.com"  />
+                  <RaisedButton label="submit" backgroundColor= "#525ac4" labelColor="#EEE"
+                    buttonStyle={{borderRadius: 5, boxShadow: "1px 1px 1px #777"}}
+                    style={{marginBottom: 50, marginTop: 10, textTransform: 'uppercase', width: 250}}
+                    type='submit' value='submit' />
                 </div>
               </Card>
           </div>
