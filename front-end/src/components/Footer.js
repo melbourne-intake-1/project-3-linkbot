@@ -8,6 +8,8 @@ class Footer extends Component {
     return (
       <div>
         <footer>
+          <br />
+          <small style={{color:"#EEE"}}>&copy; 2017 <br />Jason Hinchcliffe and Dylan Thomas</small>
         </footer>
       </div>
     )
