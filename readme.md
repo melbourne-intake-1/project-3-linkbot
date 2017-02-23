@@ -84,27 +84,21 @@ Overview
 - As a user, I want to know how many people have commented on a link.
 
 ## Design planning
-
 Initial client discussions during the planning phase indicated that the application should follow a reddit-style approach to the layout of the application. A brainstorming session about the components and functionality was undertaken where some low-fidelity wireframes were created as can be seen below:
 
 ### Whiteboard screens
-
 ![whiteboard screens](/readme_assets/whiteboard_screens.JPG?raw=true "Optional Title")
 
 ### Handwritten sketches
-
 ![whiteboard screens](/readme_assets/pen_paper_screens.jpg?raw=true "Optional Title")
 
 These initial sketches were then taken a step further where a high-fidelity Figma wireframe was created. This wireframing process allowed us to iteratively map out the required pages and components for the application. This gave us a better sense of the intended user workflow of the application. 
 
 ### High fidelity wireframes
-
 #### Planning the components that we require:
-
 ![figma components](/readme_assets/figma_components.PNG?raw=true "Optional Title")
 
 #### Planning the pages that we require:
-
 ![figma pages](/readme_assets/figma_pages.PNG?raw=true "Optional Title")
 
 ## Development
@@ -121,6 +115,9 @@ The API receives the Slack Post request and:
 - This API is the access point for all resources - GET, POST, PUT, DELETE etc.
 - Finally it posts the response to Slack acknowledging that the message has been saved.
 
+### Slackbot example post
+![slackbot](/readme_assets/slackbot.PNG?raw=true "Optional Title")
+
 ### MongoDB schema 
 ![db_design](/readme_assets/db_design.PNG?raw=true "Optional Title")
 
@@ -133,21 +130,17 @@ Standalone React Front-End.
 
 ![post_page](/readme_assets/post_page.PNG?raw=true "Optional Title")
 
-
 ## Style guide
 ### Colours
 The primary colour that we chose was chosen in order to remain somewhat consistent with the Coder Factory Academy logo.
-
 ![colour](/readme_assets/colour.PNG?raw=true "Optional Title")
 
 ### Fonts
 The default font used in Material UI is Roboto and this was considered appropriate for the site given its clean style.
-
 ![roboto](/readme_assets/roboto.PNG?raw=true "Optional Title")
 
 ### Icons
 A number of Material UI icons were chosen for the site including 'android', 'thumb up', 'open in browser' and 'delete forever'.
-
 ![icons](/readme_assets/icons.PNG?raw=true "Optional Title")
 
 ![title_icon](/readme_assets/title_icon.PNG?raw=true "Optional Title")
