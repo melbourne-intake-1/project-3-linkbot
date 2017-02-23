@@ -149,7 +149,7 @@ The default font used in Material UI is Roboto and this was considered appropria
 A number of Material UI icons were chosen for the site including 'android', 'thumb up', 'open in browser' and 'delete forever'.
 
 ![icons](/readme_assets/icons.PNG?raw=true "Optional Title")
-(/readme_assets/title_icon.PNG?raw=true "Optional Title")
+![title_icon](/readme_assets/title_icon.PNG?raw=true "Optional Title")
 
 ## Further information
 We used the project management tool Trello which easily enables the use of an Agile development methodology for developing the application. Our public Trello board can be viewed by clicking the link below:
