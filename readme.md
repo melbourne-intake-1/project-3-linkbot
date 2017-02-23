@@ -41,7 +41,7 @@ Overview
 
 ## Problem
 - When CFA students find useful resources, they often post them into the CFA Slack channel. 
-- However, these resources often get lost amongst the other posts and comments, or are not stored in an easily accessible, or organised, way for future use. 
+- However, these resources often get lost amongst the other posts and comments or are not stored in an easily accessible (or organised) way for future use. 
 - This project will look at ways of preserving and filtering this information for the benefit of CFA students and teachers.
 - After discussions with the client, it became apparent that the aim of the application was for it to integrate with Slack so students wouldn't have to post links in both Slack and our application (although this option should be included). 
 
@@ -107,7 +107,7 @@ Due to a short development timeframe a decision was made to utilise Material UI 
 ### Back end
 When a message is posted to Slack, Outgoing Webhook sends the message to the Slackbot API endpoint as a POST request with JSON information.
 
-The API receives the Slack Post request and:
+The API receives the Slack POST request and:
 - Strips out the shared link URL.
 - Sends a GET request to the link URL to gather the Open Graph assets, i.e. image, title, description, etc.
 - Posts to website API with message information.
@@ -133,14 +133,17 @@ Standalone React Front-End.
 ## Style guide
 ### Colours
 The primary colour that we chose was chosen in order to remain somewhat consistent with the Coder Factory Academy logo.
+
 ![colour](/readme_assets/colour.PNG?raw=true "Optional Title")
 
 ### Fonts
 The default font used in Material UI is Roboto and this was considered appropriate for the site given its clean style.
+
 ![roboto](/readme_assets/roboto.PNG?raw=true "Optional Title")
 
 ### Icons
 A number of Material UI icons were chosen for the site including 'android', 'thumb up', 'open in browser' and 'delete forever'.
+
 ![icons](/readme_assets/icons.PNG?raw=true "Optional Title")
 
 ![title_icon](/readme_assets/title_icon.PNG?raw=true "Optional Title")
