@@ -99,7 +99,11 @@ These initial sketches were then taken a step further where a high-fidelity Figm
 
 ### High fidelity wireframes
 
+Planning the components that we require:
+
 ![figma components](/readme_assets/figma_components.PNG?raw=true "Optional Title")
+
+Planning the pages that we require:
 
 ![figma pages](/readme_assets/figma_pages.PNG?raw=true "Optional Title")
 
@@ -118,7 +122,7 @@ The API receives the Slack Post request and:
 - Finally it posts the response to Slack acknowledging that the message has been saved.
 
 ### MongoDB schema 
-[Database Design](/readme_assets/db_design.PNG?raw=true "Optional Title")
+![db_design](/readme_assets/db_design.PNG?raw=true "Optional Title")
 
 ### Front end
 Standalone React Front-End.
@@ -127,24 +131,24 @@ Standalone React Front-End.
 - Allows creation of new resources.
 - Can expand each resource for more information.
 
-[Posts Page](/readme_assets/post_page.PNG?raw=true "Optional Title")
+![post_page](/readme_assets/post_page.PNG?raw=true "Optional Title")
 
 
 ## Style guide
 ### Colours
 The primary colour that we chose was chosen in order to remain somewhat consistent with the Coder Factory Academy logo.
 
-[#268eb7](/readme_assets/colour.PNG?raw=true "Optional Title")
+![colour](/readme_assets/colour.PNG?raw=true "Optional Title")
 
 ### Fonts
 The default font used in Material UI is Roboto and this was considered appropriate for the site given its clean style.
 
-[Roboto](/readme_assets/roboto.PNG?raw=true "Optional Title")
+![roboto](/readme_assets/roboto.PNG?raw=true "Optional Title")
 
 ### Icons
 A number of Material UI icons were chosen for the site including 'android', 'thumb up', 'open in browser' and 'delete forever'.
 
-[Icons](/readme_assets/icons.PNG?raw=true "Optional Title")
+![icons](/readme_assets/icons.PNG?raw=true "Optional Title")
 (/readme_assets/title_icon.PNG?raw=true "Optional Title")
 
 ## Further information
