@@ -12,7 +12,7 @@ Overview
 * [Client](#client)
 * [Problem](#problem)
 * [Proposed Solution](#proposed-solution)
-* [Technologies/tools used](#technologies/tools-used)
+* [Technologies and tools used](#technologies-and-tools-used)
 * [Proposed implementation](#proposed-implementation)
 * [User Stories](#user-stories)
 * [Design Planning](#design-planning)
@@ -50,7 +50,7 @@ Overview
 - It will include CRUD functionality for each link and will allow students to rate each link with more popular links rising to the top of the pile. 
 - It is envisaged that this application could potentially serve as a 'recommended reading' list for future CFA students where the scouring of high quality online coding materials has been done for them. 
 
-## Technologies/tools used
+## Technologies and tools used
 - NodeJS utilising Express.js web framework
 - MongoDB utilising Mongoose object modeling tool
 - ReactJS using Google’s material design UI components to design
@@ -99,11 +99,11 @@ These initial sketches were then taken a step further where a high-fidelity Figm
 
 ### High fidelity wireframes
 
-Planning the components that we require:
+#### Planning the components that we require:
 
 ![figma components](/readme_assets/figma_components.PNG?raw=true "Optional Title")
 
-Planning the pages that we require:
+#### Planning the pages that we require:
 
 ![figma pages](/readme_assets/figma_pages.PNG?raw=true "Optional Title")
 
@@ -149,6 +149,7 @@ The default font used in Material UI is Roboto and this was considered appropria
 A number of Material UI icons were chosen for the site including 'android', 'thumb up', 'open in browser' and 'delete forever'.
 
 ![icons](/readme_assets/icons.PNG?raw=true "Optional Title")
+
 ![title_icon](/readme_assets/title_icon.PNG?raw=true "Optional Title")
 
 ## Further information
