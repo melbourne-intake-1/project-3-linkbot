@@ -5,6 +5,7 @@
 ### Developed by: [@thrillho02](https://twitter.com/thrillho02) and [@jhinch](https://twitter.com/jhinch)
 
 ### Live site: [https://build-uhqvzrgwkk.now.sh](https://build-uhqvzrgwkk.now.sh)
+#### Type in email of 'dylan@test.com' and password of 'password'
 
 Overview
 ========
